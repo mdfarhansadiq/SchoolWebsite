@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AdminSignupLoginModel;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Session;
 
 
 class AdminSignupLoginController extends Controller
@@ -13,7 +14,7 @@ class AdminSignupLoginController extends Controller
     //
     public function adminSignupPageView()
     {
-        if (session()->has('admin_login_role')) {
+        if (Session::has('admin_login_role')) {
             return redirect('/ourschool-admin/dashboard');
         }
         return view('backend.signup');
@@ -36,15 +37,15 @@ class AdminSignupLoginController extends Controller
 
             if ($count_data == 0) {
                 $data->role = 1;
-                session()->put('admin_login_role', $data->role);
+                Session::put('admin_login_role', 1);
             } else {
                 $data->role = 0;
             }
             $data->save();
-            if (session()->has('admin_login_role')) {
+            if (Session::has('admin_login_role')) {
                 return redirect('/ourschool-admin/dashboard');
             }
-            return redirect()->back()->with('success', 'Admin signup successful!');
+            return redirect()->back()->with('success', 'Successful!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong. Please try again.');
         }
@@ -52,7 +53,7 @@ class AdminSignupLoginController extends Controller
 
     public function adminLoginPageView()
     {
-        if (session()->has('admin_login_role')) {
+        if (Session::has('admin_login_role')) {
             return redirect('/ourschool-admin/dashboard');
         }
         return view('backend.login');
@@ -72,7 +73,7 @@ class AdminSignupLoginController extends Controller
                 $password = Crypt::decrypt($data->password);
                 if ($request->password == $password) {
                     if ($data->role == 1) {
-                        session()->put('admin_login_role', $data->role);
+                        Session::put('admin_login_role', 1);
                         // return redirect()->route('admin.dashboard');
                         return redirect('/ourschool-admin/dashboard');
                     } else {
@@ -91,7 +92,21 @@ class AdminSignupLoginController extends Controller
 
     public function adminLogout()
     {
-        session()->forget('admin_login_role');
+        // session()->forget('admin_login_role');
+        Session::forget('admin_login_role');
         return redirect()->route('admin.login');
+    }
+
+
+    public function adminDashboardPageView(){
+        // dd('Hiiiiii');
+        // $admin_role = Session::get('admin_login_role');
+        // if($admin_role == 1){
+        //     return redirect('/ourschool-admin/dashboard');
+        // }
+        // // Session::forget('admin_login_role');
+        // return redirect()->route('admin.login');
+
+        return redirect('/ourschool-admin/dashboard');
     }
 }

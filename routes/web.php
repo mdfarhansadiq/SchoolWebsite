@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
+use App\Http\Controllers\adminDashboard\AdminDashboardController;
+
+
 
 
 
@@ -20,19 +23,21 @@ Route::get('/notice', function () {
 });
 
 
+
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
 Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');
 Route::post('/ourschool-admin/login/create', [AdminSignupLoginController::class, 'adminLoginPageCreate'])->name('admin.login.create');
 Route::post('/ourschool-admin/logout', [AdminSignupLoginController::class, 'adminLogout'])->name('admin.logout');
 
+Route::get('/ourschool-admin/dashboard', [AdminSignupLoginController::class, 'adminDashboardPageView']);
 
 
 
+// Route::get('/ourschool-admin/dashboard', function () {
+//     return view('backend.dashboard');
+// });
 
-Route::get('/ourschool-admin/dashboard', function () {
-    return view('backend.dashboard');
-});
 
 
 

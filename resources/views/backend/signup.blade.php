@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
-    <title>Sign Up Form by Colorlib</title>
+    <title>Gonga Pur Govt. Primary School</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet"
@@ -27,7 +27,7 @@
             display: inline-block;
         }
 
-        <style>.alert {
+        .alert {
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid transparent;
@@ -45,6 +45,20 @@
             background-color: #f8d7da;
             border-color: #f5c6cb;
         }
+
+        /* Fix for image overflow */
+        .navbar-brand img {
+            width: 100%;
+            max-width: 163px;
+            /* Set the exact width as needed */
+            height: auto;
+        }
+
+        /* Make sure the form container has proper width and prevents overflow */
+        .signup-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
     </style>
 
     </style>
@@ -60,7 +74,7 @@
                 <div class="signup-content">
                     <nav class="navbar">
                         <a class="navbar-brand logo_h" href="{{ url('/') }}">
-                            <img src="{{ asset('frontend/asset/img/logo.png') }}" alt />
+                            <img src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}" alt />
                         </a>
                     </nav>
                     <form method="POST" id="signup-form" class="signup-form"
@@ -115,7 +129,8 @@
                     </form>
 
                     <p class="loginhere">
-                        Have already an account ? <a href="{{url('/ourschool-admin/login/view')}}" class="loginhere-link">Login here</a>
+                        Have already an account ? <a href="{{ url('/ourschool-admin/login/view') }}"
+                            class="loginhere-link">Login here</a>
                     </p>
                 </div>
             </div>

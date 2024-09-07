@@ -18,7 +18,21 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
 
+    <style>
+        /* Fix for image overflow */
+        .navbar-brand img {
+            width: 100%;
+            max-width: 163px;
+            /* Set the exact width as needed */
+            height: auto;
+        }
 
+        /* Make sure the form container has proper width and prevents overflow */
+        .signup-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
     @stack('css')
     <script nonce="6685f9e1-74e5-4a8a-9212-9993819d0a37">
         try {
@@ -161,7 +175,7 @@
 
 
 
-    
+
     @stack('js')
 </body>
 

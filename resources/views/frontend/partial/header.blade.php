@@ -24,8 +24,8 @@
                         </div>
                     </div>
                 </div>
-                <a class="navbar-brand logo_h" href="{{url('/')}}"><img src="{{ asset('frontend/asset/img/logo.png') }}"
-                        alt /></a>
+                {{-- <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
+                        src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}" alt /></a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -85,6 +85,10 @@
                                 <i class="ti-search"></i>
                             </a>
                         </li> --}}
+                        <li class="nav-item">
+                            <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
+                                src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}" alt /></a>
+                        </li>
                     </ul>
                 </div>
             </div>
