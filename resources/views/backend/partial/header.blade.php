@@ -101,7 +101,12 @@
 
                     <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    {{-- <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a> --}}
+                    <form method="POST" action="{{route('admin.logout')}}">
+                        @csrf
+                        <button type="submit" class="btn btn-primary" style="color: #fff"
+                            id="signoutbtn">Logout</button>
+                    </form>
                 </div>
             </div>
 

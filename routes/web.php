@@ -20,11 +20,11 @@ Route::get('/notice', function () {
 });
 
 
-Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView']);
-Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate']);
-Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView']);
-Route::post('/ourschool-admin/login/create', [AdminSignupLoginController::class, 'adminLoginPageCreate']);
-Route::get('/ourschool-admin/logout', [AdminSignupLoginController::class, 'adminLogout']);
+Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
+Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
+Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');
+Route::post('/ourschool-admin/login/create', [AdminSignupLoginController::class, 'adminLoginPageCreate'])->name('admin.login.create');
+Route::post('/ourschool-admin/logout', [AdminSignupLoginController::class, 'adminLogout'])->name('admin.logout');
 
 
 

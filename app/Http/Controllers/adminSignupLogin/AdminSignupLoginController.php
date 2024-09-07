@@ -14,7 +14,7 @@ class AdminSignupLoginController extends Controller
     public function adminSignupPageView()
     {
         if (session()->has('admin_login_role')) {
-            // return redirect()->route('admin.dashboard');
+            return redirect('/ourschool-admin/dashboard');
         }
         return view('backend.signup');
     }
@@ -41,6 +41,9 @@ class AdminSignupLoginController extends Controller
                 $data->role = 0;
             }
             $data->save();
+            if (session()->has('admin_login_role')) {
+                return redirect('/ourschool-admin/dashboard');
+            }
             return redirect()->back()->with('success', 'Admin signup successful!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong. Please try again.');
@@ -50,7 +53,7 @@ class AdminSignupLoginController extends Controller
     public function adminLoginPageView()
     {
         if (session()->has('admin_login_role')) {
-            // return redirect()->route('admin.dashboard');
+            return redirect('/ourschool-admin/dashboard');
         }
         return view('backend.login');
     }
@@ -71,7 +74,7 @@ class AdminSignupLoginController extends Controller
                     if ($data->role == 1) {
                         session()->put('admin_login_role', $data->role);
                         // return redirect()->route('admin.dashboard');
-                        return redirect('/ourschool-admin/signup/view');
+                        return redirect('/ourschool-admin/dashboard');
                     } else {
                         return redirect()->back()->with('error', 'You are not authorized to access this page.');
                     }
@@ -88,7 +91,7 @@ class AdminSignupLoginController extends Controller
 
     public function adminLogout()
     {
-        session()->forget('admin_login');
+        session()->forget('admin_login_role');
         return redirect()->route('admin.login');
     }
 }
