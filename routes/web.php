@@ -30,7 +30,9 @@ Route::get('/ourschool-admin/logout', [AdminSignupLoginController::class, 'admin
 
 
 
-
+Route::get('/ourschool-admin/dashboard', function () {
+    return view('backend.dashboard');
+});
 
 
 
