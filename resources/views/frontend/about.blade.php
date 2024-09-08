@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
-    <title>Edustage Education</title>
+    <title>Gonga Pur Govt. Primary School</title>
 
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/flaticon.css') }}" />
@@ -205,7 +205,7 @@
                             <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Live Class</a>
                             </li>

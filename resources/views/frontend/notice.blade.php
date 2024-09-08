@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
-    <title>Edustage Education</title>
+    <title>Gonga Pur Govt. Primary School</title>
 
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/flaticon.css') }}" />
@@ -599,8 +599,10 @@
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">Serial No.</th>
+
                         <th scope="col">Title</th>
-                        <th scope="col">Notice Link</th>
+                        <th scope="col">File Format</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -608,7 +610,11 @@
                         <tr>
                             <th scope="row">{{ $key + 1 }}</th>
                             <td>{{ $notice->title }}</td>
-                            <td><a href="{{url($notice->document_url)}}" target="_blank" class="btn btn-primary">Link</a></td>
+                            <td><a href="{{ url($notice->document_url) }}" target="_blank"
+                                class="btn btn-primary"><img style="width:130px; height: 100px;"
+                                    src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
+                                    alt="" title="News image"></a></td>
+
                         </tr>
                     @endforeach
                 </tbody>

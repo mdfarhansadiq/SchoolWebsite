@@ -23,6 +23,11 @@
                 <form action="{{ route('admin.noticedocument.create') }}" method="post" enctype="multipart/form-data"
                     class="form-horizontal">
                     @csrf
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="form-group row">
                         <label for="notice-input" class="col-md-3 col-form-label">Notice Title</label>
                         <div class="col-md-9">
@@ -43,14 +48,14 @@
 
                     <!-- Uncomment this section if you plan to use it -->
                     <!--
-                            <div class="form-group row">
-                                <label for="textarea-input" class="col-md-3 col-form-label">Notice Content</label>
-                                <div class="col-md-9">
-                                    <textarea name="textarea-input" id="textarea-input" rows="5" placeholder="Enter content..." class="form-control"></textarea>
-                                    <small class="form-text text-muted">Provide additional details or content here.</small>
+                                <div class="form-group row">
+                                    <label for="textarea-input" class="col-md-3 col-form-label">Notice Content</label>
+                                    <div class="col-md-9">
+                                        <textarea name="textarea-input" id="textarea-input" rows="5" placeholder="Enter content..." class="form-control"></textarea>
+                                        <small class="form-text text-muted">Provide additional details or content here.</small>
+                                    </div>
                                 </div>
-                            </div>
-                            -->
+                                -->
 
                     <div class="form-footer text-center">
                         <button type="submit" class="btn btn-primary">
@@ -74,7 +79,7 @@
                         <tr>
                             <th scope="col">Serial No.</th>
                             <th scope="col">Title</th>
-                            {{-- <th scope="col">Action</th> --}}
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,12 +87,12 @@
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td>{{ $notice->title }}</td>
-                                {{-- <td><a href="{{ url('/course-info/edit/view', $course['id']) }}"
-                                        class="edit btn btn-primary" type="button" data-id="{{ $course->id }}">Edit</a>
-                                    <a href="{{ url('/course-info/delete', $course['id']) }}" class="delete btn btn-danger"
-                                        type="button" data-id="{{ $course->id }}"
-                                        onclick="return confirm('Are you sure?')">Delete</a>
-                                </td> --}}
+                                <td><a href="{{ url('/ourschool-admin/noticedocument/edit', $notice['id']) }}"
+                                        class="edit btn btn-primary" type="button" data-id="{{ $notice->id }}">Edit</a>
+                                    <a href="{{ url('/ourschool-admin/noticedocument/delete', $notice['id']) }}"
+                                        class="delete btn btn-danger" type="button" data-id="{{ $notice->id }}"
+                                        onclick="return confirm('Are you sure to delete this?')">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

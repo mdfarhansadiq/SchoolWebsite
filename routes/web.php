@@ -29,6 +29,68 @@ Route::get('/ourschool-admin/dashboard', [AdminDashboardController::class, 'admi
 
 Route::get('/ourschool-admin/noticedocument/view', [NoticeDocumentController::class, 'noticeDocumentPageView'])->name('admin.noticedocument.view');
 Route::post('/ourschool-admin/noticedocument/create', [NoticeDocumentController::class, 'noticeDocumentPageCreate'])->name('admin.noticedocument.create');
+Route::get('/ourschool-admin/noticedocument/edit/{id}', [NoticeDocumentController::class, 'noticeDocumentPageEdit'])->name('admin.noticedocument.edit');
+Route::post('/ourschool-admin/noticedocument/update/{id}', [NoticeDocumentController::class, 'noticeDocumentPageUpdate'])->name('admin.noticedocument.update');
+Route::get('/ourschool-admin/noticedocument/delete/{id}', [NoticeDocumentController::class, 'noticeDocumentPageDelete'])->name('admin.noticedocument.delete');
+
+// Route::get('/ourschool-admin/login', function () {
+//     return view('backend.login');
+// });
+
+// Route::get('/ourschool-admin/signup', function () {
+//     return view('backend.signup');
+// });
+
+// Route::get('/ourschool-admin/logout', function () {
+//     return redirect()->route('admin.login');
+// });
+
+// Route::get('/ourschool-admin/noticedocument', function () {
+//     return view('backend.noticedocument');
+// });
+
+// Route::get('/ourschool-admin/editnoticedocument', function () {
+//     return view('backend.editnoticedocument');
+// });
+
+// Route::get('/ourschool-admin/addnoticedocument', function () {
+//     return view('backend.addnoticedocument');
+// });
+
+// Route::get('/ourschool-admin/profile', function () {
+//     return view('backend.profile');
+// });
+
+// Route::get('/ourschool-admin/setting', function () {
+//     return view('backend.setting');
+// });
+
+// Route::get('/ourschool-admin/gallery', function () {
+//     return view('backend.gallery');
+// });
+
+// Route::get('/ourschool-admin/addgallery', function () {
+//     return view('backend.addgallery');
+// });
+
+// Route::get('/ourschool-admin/editgallery', function () {
+//     return view('backend.editgallery');
+// });
+
+// Route::get('/ourschool-admin/teacher', function () {
+//     return view('backend.teacher');
+// });
+
+// Route::get('/ourschool-admin/addteacher', function () {
+//     return view('backend.addteacher');
+// });
+
+// Route::get('/ourschool-admin/editteacher', function () {
+//     return view('backend.editteacher');
+// });
+
+// Route::get('/ourschool-admin/student', function () {
+//     return view('backend.student');]);
 
 
 
