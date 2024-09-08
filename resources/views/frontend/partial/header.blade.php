@@ -87,7 +87,8 @@
                         </li> --}}
                         <li class="nav-item">
                             <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
-                                src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}" alt /></a>
+                                    src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
+                                    alt /></a>
                         </li>
                     </ul>
                 </div>
@@ -100,11 +101,12 @@
 
                 <table class="border-0">
                     <tbody>
-                        <tr>
 
-                            <!-- ### For Notice - Start ### -->
+                            <tr>
+                                @foreach ($noticeDocuments as $dt)
+                                <!-- ### For Notice - Start ### -->
 
-                            <td class="border-0">
+                                {{-- <td class="border-0">
 
                                 <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
                                     target="_blank"> জরুরি বিজ্ঞপ্তি </a> &nbsp; &nbsp; &nbsp;
@@ -118,21 +120,28 @@
                                     target="_blank"> এইচএসসি ২য় বর্ষ ২০২৪ ছাত্রদের ব্যাবহারিক ক্লাসের রুটিন </a>
                                 &nbsp; &nbsp; &nbsp;
 
-                            </td>
+                            </td> --}}
 
 
-                            <td class="border-0">
+                                {{-- <td class="border-0">
 
                                 <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/57d/37c/66d57d37cfbbd674181677.pdf"
                                     target="_blank"> এইচএসসি প্রথম বর্ষ-২০২৪ শিক্ষার্থীদের স্থায়ী রোল নম্বর প্রকাশ
                                 </a> &nbsp; &nbsp; &nbsp;
 
-                            </td>
+                            </td> --}}
+
+                                <td class="border-0">
+
+
+                                        <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
+                                        &nbsp; &nbsp; &nbsp;
 
 
 
-
-                            <!-- ### Notice End ### -->
+                                </td>
+                        @endforeach
+                        <!-- ### Notice End ### -->
 
                         </tr>
                     </tbody>

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/asset/vendors/nice-select/css/nice-select.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         /* Fix for image overflow */
@@ -31,6 +32,33 @@
         .signup-content {
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        #scrollUp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            /* Initially hidden */
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            /* Make sure it's above other content */
+        }
+
+        #scrollUp:hover {
+            background-color: #555;
+            /* Change color on hover */
+        }
+
+        .fa-angle-up {
+            font-size: 20px;
         }
     </style>
     @stack('css')
@@ -174,7 +202,31 @@
         crossorigin="anonymous"></script>
 
 
+    <script>
+        // When the user scrolls down 100px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction();
+        };
 
+
+
+        function scrollFunction() {
+            const scrollUpButton = document.getElementById("scrollUp");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollUpButton.style.display = "block";
+            } else {
+                scrollUpButton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        document.getElementById("scrollUp").addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
     @stack('js')
 </body>

@@ -3,14 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
 use App\Http\Controllers\adminDashboard\AdminDashboardController;
+use App\Http\Controllers\noticeDocument\NoticeDocumentController;
+use App\Http\Controllers\homePage\HomePageController;
+use PHPUnit\Framework\TestStatus\Notice;
 
-
-
-
-
-Route::get('/', function () {
-    return view('frontend.home');
-});
+Route::get('/', [HomePageController::class, 'homePageView'])->name('home');
 
 
 Route::get('/about', function () {
@@ -18,9 +15,7 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/notice', function () {
-    return view('frontend.notice');
-});
+Route::get('/notice', [NoticeDocumentController::class, 'noticeDocumentFrontendView']);
 
 
 
@@ -31,6 +26,10 @@ Route::post('/ourschool-admin/login/create', [AdminSignupLoginController::class,
 Route::post('/ourschool-admin/logout', [AdminSignupLoginController::class, 'adminLogout'])->name('admin.logout');
 
 Route::get('/ourschool-admin/dashboard', [AdminDashboardController::class, 'adminDashboardPageView']);
+
+Route::get('/ourschool-admin/noticedocument/view', [NoticeDocumentController::class, 'noticeDocumentPageView'])->name('admin.noticedocument.view');
+Route::post('/ourschool-admin/noticedocument/create', [NoticeDocumentController::class, 'noticeDocumentPageCreate'])->name('admin.noticedocument.create');
+
 
 
 

@@ -77,3 +77,8 @@
         </div>
     </div>
 </footer>
+
+
+<div id="scrollUp" style="display: block;">
+    <i class="fa fa-angle-up"></i>
+</div>

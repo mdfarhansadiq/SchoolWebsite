@@ -422,33 +422,33 @@
                         <div class="latest-courses">
                             <h3 class="title">Notice Board</h3>
 
+                            @foreach ($notice_documents_1 as $notice)
+                                <div class="post-item">
+                                    <div class="post-img">
 
-                            <div class="post-item">
-                                <div class="post-img">
-
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
-                                        target="_blank"><img style="width:130px; height: 100px;"
-                                            src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
-                                            alt="" title="News image"></a>
+                                        <a href="{{ url($notice->document_url) }}" target="_blank"><img
+                                                style="width:130px; height: 100px;"
+                                                src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
+                                                alt="" title="News image"></a>
 
 
 
+                                    </div>
+                                    <div class="post-desc notice-details">
+                                        <h4>
+
+                                            <a href="{{ url($notice->document_url) }}"
+                                                target="_blank">{{ $notice->title }}</a>
+
+                                        </h4>
+                                        <span class="price"> <span><i class="fa fa-calendar" aria-hidden="true"></i>
+                                                {{$notice->created_at}}</span></span>
+                                        ...
+                                    </div>
                                 </div>
-                                <div class="post-desc notice-details">
-                                    <h4>
+                            @endforeach
 
-                                        <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
-                                            target="_blank">জরুরি বিজ্ঞপ্তি...</a>
-
-                                    </h4>
-                                    <span class="price"> <span><i class="fa fa-calendar" aria-hidden="true"></i>
-                                            09/05/2024</span></span>
-                                    ...
-                                </div>
-                            </div>
-
-
-                            <div class="post-item">
+                            {{-- <div class="post-item">
                                 <div class="post-img">
 
                                     <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/97e/e50/66d97ee506a3b058866013.pdf"
@@ -495,10 +495,10 @@
                                             09/02/2024</span></span>
                                     ...
                                 </div>
-                            </div>
+                            </div> --}}
 
 
-                            <div style="text-align: right; margin-top: 10px;"><a href="https://ndc.edu.bd/notice-lists"
+                            <div style="text-align: right; margin-top: 10px;"><a href="{{url('/notice')}}"
                                     class="vr_btn">More Notice</a></div>
 
                         </div>

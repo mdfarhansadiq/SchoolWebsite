@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/asset/vendors/nice-select/css/nice-select.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- DataTables CSS -->
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -241,6 +242,48 @@
         .dataTables_paginate .paginate_button:hover {
             background-color: #0056b3;
         }
+
+        /* Fix for image overflow */
+        .navbar-brand img {
+            width: 100%;
+            max-width: 163px;
+            /* Set the exact width as needed */
+            height: auto;
+        }
+
+        /* Make sure the form container has proper width and prevents overflow */
+        .signup-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+
+        #scrollUp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            /* Initially hidden */
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            /* Make sure it's above other content */
+        }
+
+        #scrollUp:hover {
+            background-color: #555;
+            /* Change color on hover */
+        }
+
+        .fa-angle-up {
+            font-size: 20px;
+        }
     </style>
     <script nonce="6685f9e1-74e5-4a8a-9212-9993819d0a37">
         try {
@@ -369,8 +412,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="navbar-brand logo_h" href="index-2.html"><img
-                            src="{{ asset('frontend/asset/img/logo.png') }}" alt /></a>
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -430,6 +472,11 @@
                                     <i class="ti-search"></i>
                                 </a>
                             </li> --}}
+                            <li class="nav-item">
+                                <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
+                                        src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
+                                        alt /></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -443,35 +490,44 @@
                         <tbody>
                             <tr>
 
-                                <!-- ### For Notice - Start ### -->
+                                @foreach ($noticeDocuments as $dt)
+                                    <!-- ### For Notice - Start ### -->
 
-                                <td class="border-0">
+                                    {{-- <td class="border-0">
 
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
-                                        target="_blank"> জরুরি বিজ্ঞপ্তি </a> &nbsp; &nbsp; &nbsp;
+                                <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
+                                    target="_blank"> জরুরি বিজ্ঞপ্তি </a> &nbsp; &nbsp; &nbsp;
 
-                                </td>
-
-
-                                <td class="border-0">
-
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/97e/e50/66d97ee506a3b058866013.pdf"
-                                        target="_blank"> এইচএসসি ২য় বর্ষ ২০২৪ ছাত্রদের ব্যাবহারিক ক্লাসের রুটিন </a>
-                                    &nbsp; &nbsp; &nbsp;
-
-                                </td>
+                            </td>
 
 
-                                <td class="border-0">
+                            <td class="border-0">
 
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/57d/37c/66d57d37cfbbd674181677.pdf"
-                                        target="_blank"> এইচএসসি প্রথম বর্ষ-২০২৪ শিক্ষার্থীদের স্থায়ী রোল নম্বর প্রকাশ
-                                    </a> &nbsp; &nbsp; &nbsp;
+                                <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/97e/e50/66d97ee506a3b058866013.pdf"
+                                    target="_blank"> এইচএসসি ২য় বর্ষ ২০২৪ ছাত্রদের ব্যাবহারিক ক্লাসের রুটিন </a>
+                                &nbsp; &nbsp; &nbsp;
 
-                                </td>
+                            </td> --}}
+
+
+                                    {{-- <td class="border-0">
+
+                                <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/57d/37c/66d57d37cfbbd674181677.pdf"
+                                    target="_blank"> এইচএসসি প্রথম বর্ষ-২০২৪ শিক্ষার্থীদের স্থায়ী রোল নম্বর প্রকাশ
+                                </a> &nbsp; &nbsp; &nbsp;
+
+                            </td> --}}
+
+                                    <td class="border-0">
+
+
+                                        <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
+                                        &nbsp; &nbsp; &nbsp;
 
 
 
+                                    </td>
+                                @endforeach
 
                                 <!-- ### Notice End ### -->
 
@@ -542,36 +598,19 @@
             <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">Course</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Number</th>
-
+                        <th scope="col">Serial No.</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Notice Link</th>
                     </tr>
                 </thead>
-
                 <tbody>
-
-                    <tr>
-                        <td>Tiger</td>
-                        <td>Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                    </tr>
-                    <tr>
-                        <td>Colleen</td>
-                        <td>Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>San Francisco</td>
-                    </tr>
-
+                    @foreach ($data as $key => $notice)
+                        <tr>
+                            <th scope="row">{{ $key + 1 }}</th>
+                            <td>{{ $notice->title }}</td>
+                            <td><a href="{{url($notice->document_url)}}" target="_blank" class="btn btn-primary">Link</a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
 
 
@@ -662,6 +701,11 @@
         </div>
     </footer>
 
+    <div id="scrollUp" style="display: block;">
+        <i class="fa fa-angle-up"></i>
+    </div>
+
+
     <script src="{{ asset('frontend/asset/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('frontend/asset/js/popper.js') }}"></script>
     <script src="{{ asset('frontend/asset/js/bootstrap.min.js') }}"></script>
@@ -709,22 +753,36 @@
 
     <!-- Custom DataTables script -->
     <script>
-        // $(document).ready(function() {
-        //     $('#example').DataTable({
-        //         "responsive": true,
-        //         "lengthMenu": [10, 25, 50, 100],
-        //         "language": {
-        //             "search": "_INPUT_",
-        //             "searchPlaceholder": "Search notices..."
-        //         }
-        //     });
-        // });
-
         new DataTable('#example', {
             responsive: true
         });
     </script>
 
+    <script>
+        // When the user scrolls down 100px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+
+
+        function scrollFunction() {
+            const scrollUpButton = document.getElementById("scrollUp");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollUpButton.style.display = "block";
+            } else {
+                scrollUpButton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        document.getElementById("scrollUp").addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 
