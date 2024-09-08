@@ -30,7 +30,7 @@ Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'a
 Route::post('/ourschool-admin/login/create', [AdminSignupLoginController::class, 'adminLoginPageCreate'])->name('admin.login.create');
 Route::post('/ourschool-admin/logout', [AdminSignupLoginController::class, 'adminLogout'])->name('admin.logout');
 
-Route::get('/ourschool-admin/dashboard', [AdminSignupLoginController::class, 'adminDashboardPageView']);
+Route::get('/ourschool-admin/dashboard', [AdminDashboardController::class, 'adminDashboardPageView']);
 
 
 

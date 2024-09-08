@@ -96,17 +96,4 @@ class AdminSignupLoginController extends Controller
         Session::forget('admin_login_role');
         return redirect()->route('admin.login');
     }
-
-
-    public function adminDashboardPageView(){
-        // dd('Hiiiiii');
-        // $admin_role = Session::get('admin_login_role');
-        // if($admin_role == 1){
-        //     return redirect('/ourschool-admin/dashboard');
-        // }
-        // // Session::forget('admin_login_role');
-        // return redirect()->route('admin.login');
-
-        return redirect('/ourschool-admin/dashboard');
-    }
 }
