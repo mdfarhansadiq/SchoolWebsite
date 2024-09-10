@@ -7,6 +7,7 @@ use App\Http\Controllers\noticeDocument\NoticeDocumentController;
 use App\Http\Controllers\homePage\HomePageController;
 use App\Http\Controllers\teacherInfo\TeacherInfoController;
 use App\Http\Controllers\teacherLoginSignup\TeacherLoginSignupController;
+use App\Http\Controllers\onlineClassVideo\OnlineClassVideoController;
 use PHPUnit\Framework\TestStatus\Notice;
 
 Route::get('/', [HomePageController::class, 'homePageView'])->name('home');
@@ -51,6 +52,13 @@ Route::post('/ourschool-admin/teacher/another/update/{id}', [TeacherInfoControll
 
 Route::get('/ourschool-admin/teacher-login-signup-info/view', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageView'])->name('admin.teacher-login-signup-info.view');
 Route::post('/ourschool-admin/teacher-login-signup-info/create', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageCreate'])->name('admin.teacher-login-signup-info.create');
+
+
+Route::get('/ourschool-admin/class-record/view', [OnlineClassVideoController::class, 'classVideoPageView'])->name('admin.class-record.view');
+Route::post('/ourschool-admin/class-record/create', [OnlineClassVideoController::class, 'classVideoPageCreate'])->name('admin.class-record.create');
+Route::get('/ourschool-admin/class-record/edit/{id}', [OnlineClassVideoController::class, 'classVideoPageEdit'])->name('admin.class-record.edit');
+Route::post('/ourschool-admin/class-record/update/{id}', [OnlineClassVideoController::class, 'classVideoPageUpdate'])->name('admin.class-record.update');
+Route::get('/ourschool-admin/class-record/delete/{id}', [OnlineClassVideoController::class, 'classVideoPageDelete'])->name('admin.class-record.delete');
 
 // Route::get('/ourschool-admin/login', function () {
 //     return view('backend.login');

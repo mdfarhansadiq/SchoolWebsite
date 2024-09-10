@@ -34,6 +34,9 @@
                 <li class="nav-item {{ request()->is('ourschool-admin/teacher/view') ? 'active' : '' }}">
                     <a href="{{ url('ourschool-admin/teacher/view') }}"> <i class="menu-icon fa fa-user"></i>Teacher Info & Form - 2</a>
                 </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/class-record/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/class-record/view') }}"> <i class="menu-icon fa fa-youtube-play"></i>Class Video Link</a>
+                </li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
