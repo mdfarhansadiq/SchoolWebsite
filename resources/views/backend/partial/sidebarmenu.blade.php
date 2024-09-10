@@ -21,9 +21,20 @@
                     </a>
                 </li>
                 <li class="nav-item {{ request()->is('ourschool-admin/noticedocument/view') ? 'active' : '' }}">
-                    <a href="{{ url('ourschool-admin/noticedocument/view') }}"> <i class="menu-icon fa fa-file-text"></i>Notice
+                    <a href="{{ url('ourschool-admin/noticedocument/view') }}"> <i
+                            class="menu-icon fa fa-file-text"></i>Notice
                         Document</a>
                 </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/teacher-login-signup-info/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/teacher-login-signup-info/view') }}"> <i class="menu-icon fa fa-sign-in" aria-hidden="true"></i>Teacher Account</a>
+                </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/teacher/another/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/teacher/another/view') }}"> <i class="menu-icon fa fa-user"></i>Teacher Info & Form - 1</a>
+                </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/teacher/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/teacher/view') }}"> <i class="menu-icon fa fa-user"></i>Teacher Info & Form - 2</a>
+                </li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
 

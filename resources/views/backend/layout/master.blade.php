@@ -23,8 +23,10 @@
     <link rel="stylesheet" href="{{ asset('backend/adminend/asset/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/adminend/asset/vendors/selectFX/css/cs-skin-elastic.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/adminend/asset/vendors/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/adminend/asset/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
+    <link rel="stylesheet"
+        href="{{ asset('backend/adminend/asset/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/adminend/asset/assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.1.0/ckeditor5.css" />
@@ -62,18 +64,21 @@
     <script src="{{ asset('backend/adminend/asset/assets/js/widgets.js') }}"></script>
     <script src="{{ asset('backend/adminend/asset/vendors/jqvmap/dist/jquery.vmap.min.js') }}"></script>
     <script src="{{ asset('backend/adminend/asset/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/jszip/dist/jszip.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-    <script src="{{ asset('backend/adminend/asset/assets/js/init-scripts/data-table/datatables-init.js')}}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}">
+    </script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}">
+    </script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
+    </script>
+    <script src="{{ asset('backend/adminend/asset/vendors/jszip/dist/jszip.min.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('backend/adminend/asset/assets/js/init-scripts/data-table/datatables-init.js') }}"></script>
     <script>
         (function($) {
             "use strict";
@@ -110,6 +115,16 @@
             $('#dataTable').DataTable();
         });
     </script>
+    <script>
+        document.querySelectorAll('.editor').forEach((textarea) => {
+            ClassicEditor
+                .create(textarea)
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
+
     @stack('js')
 </body>
 

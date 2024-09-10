@@ -5,6 +5,8 @@ use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
 use App\Http\Controllers\adminDashboard\AdminDashboardController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
 use App\Http\Controllers\homePage\HomePageController;
+use App\Http\Controllers\teacherInfo\TeacherInfoController;
+use App\Http\Controllers\teacherLoginSignup\TeacherLoginSignupController;
 use PHPUnit\Framework\TestStatus\Notice;
 
 Route::get('/', [HomePageController::class, 'homePageView'])->name('home');
@@ -19,19 +21,36 @@ Route::get('/notice', [NoticeDocumentController::class, 'noticeDocumentFrontendV
 
 
 
+
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
 Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');
 Route::post('/ourschool-admin/login/create', [AdminSignupLoginController::class, 'adminLoginPageCreate'])->name('admin.login.create');
 Route::post('/ourschool-admin/logout', [AdminSignupLoginController::class, 'adminLogout'])->name('admin.logout');
 
-Route::get('/ourschool-admin/dashboard', [AdminDashboardController::class, 'adminDashboardPageView']);
+Route::get('/ourschool-admin/dashboard', [AdminDashboardController::class, 'adminDashboardPageView'])->name('admin.dashboard');
+
 
 Route::get('/ourschool-admin/noticedocument/view', [NoticeDocumentController::class, 'noticeDocumentPageView'])->name('admin.noticedocument.view');
 Route::post('/ourschool-admin/noticedocument/create', [NoticeDocumentController::class, 'noticeDocumentPageCreate'])->name('admin.noticedocument.create');
 Route::get('/ourschool-admin/noticedocument/edit/{id}', [NoticeDocumentController::class, 'noticeDocumentPageEdit'])->name('admin.noticedocument.edit');
 Route::post('/ourschool-admin/noticedocument/update/{id}', [NoticeDocumentController::class, 'noticeDocumentPageUpdate'])->name('admin.noticedocument.update');
 Route::get('/ourschool-admin/noticedocument/delete/{id}', [NoticeDocumentController::class, 'noticeDocumentPageDelete'])->name('admin.noticedocument.delete');
+
+Route::get('/ourschool-admin/teacher/view', [TeacherInfoController::class, 'teacherInfoPageView'])->name('admin.teacher.view');
+Route::post('/ourschool-admin/teacher/create', [TeacherInfoController::class, 'teacherInfoPageCreate'])->name('admin.teacher.create');
+Route::get('/ourschool-admin/teacher/edit/{id}', [TeacherInfoController::class, 'teacherInfoPageEdit'])->name('admin.teacher.edit');
+Route::post('/ourschool-admin/teacher/update/{id}', [TeacherInfoController::class, 'teacherInfoPageUpdate'])->name('admin.teacher.update');
+Route::get('ourschool-admin/teacher/delete/{id}', [TeacherInfoController::class, 'teacherInfoPageDelete'])->name('admin.teacher.delete');
+
+
+Route::get('/ourschool-admin/teacher/another/view', [TeacherInfoController::class, 'teacherInfoAnotherPageView'])->name('admin.teacher.another.view');
+Route::post('/ourschool-admin/teacher/another/create', [TeacherInfoController::class, 'teacherInfoAnotherPageCreate'])->name('admin.teacher.another.create');
+Route::get('/ourschool-admin/teacher/another/edit/{id}', [TeacherInfoController::class, 'teacherInfoAnotherPageEdit'])->name('admin.teacher.another.edit');
+Route::post('/ourschool-admin/teacher/another/update/{id}', [TeacherInfoController::class, 'teacherInfoAnotherPageUpdate'])->name('admin.teacher.another.update');
+
+Route::get('/ourschool-admin/teacher-login-signup-info/view', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageView'])->name('admin.teacher-login-signup-info.view');
+Route::post('/ourschool-admin/teacher-login-signup-info/create', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageCreate'])->name('admin.teacher-login-signup-info.create');
 
 // Route::get('/ourschool-admin/login', function () {
 //     return view('backend.login');
