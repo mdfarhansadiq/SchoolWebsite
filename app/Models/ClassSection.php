@@ -14,4 +14,9 @@ class ClassSection extends Model
     {
         return $this->belongsTo(ClassNumber::class, 'class_number_id');
     }
+
+    public function onlineClassVideoLinks()
+    {
+        return $this->hasMany(OnlineClassVideoLink::class);
+    }
 }

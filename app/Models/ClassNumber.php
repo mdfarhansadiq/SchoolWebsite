@@ -9,9 +9,13 @@ class ClassNumber extends Model
 {
     use HasFactory;
 
-
     public function classSections()
     {
         return $this->hasMany(ClassSection::class, 'class_number_id');
+    }
+
+    public function onlineClassVideoLinks()
+    {
+        return $this->hasMany(OnlineClassVideoLink::class);
     }
 }

@@ -13,7 +13,7 @@
 
 @section('content')
 
-    <div class="col-lg-10">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
                 <strong>Class Video - Form</strong>
@@ -111,8 +111,10 @@
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">Serial No.</th>
-                            <th scope="col">Class Title</th>
-                            <th scope="col">Class Video</th>
+                            <th scope="col">Class Level</th>
+                            <th scope="col">Class Section</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Recording Video</th>
 
                             <th scope="col">Action</th>
                         </tr>
@@ -121,8 +123,10 @@
                         @foreach ($data as $key => $classvid)
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
+                                <td>Class - {{$classvid->classNumber->class_number}}</td>
+                                <td>Section - {{$classvid->classSection->class_section}}</td>
                                 <td>{{ $classvid->title }}</td>
-                                <td><iframe width="460" height="315"
+                                <td><iframe width="430" height="300"
                                         src="https://www.youtube.com/embed/{{ $classvid->video_link }}" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen></iframe>
