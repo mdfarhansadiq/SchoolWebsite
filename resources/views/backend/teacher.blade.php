@@ -29,6 +29,22 @@
                         </div>
                     @endif
 
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="form-group row">
                         <label for="teacheremail" class="col-md-3 col-form-label">Email</label>
                         <div class="col-md-9">
@@ -152,7 +168,8 @@
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td>{{ $teacher->name }}</td>
-                                <td><img src="https://drive.google.com/thumbnail?id={{$teacher->photo_link}}" alt="{{$teacher->name}}"></td>
+                                <td><img src="https://drive.google.com/thumbnail?id={{ $teacher->photo_link }}"
+                                        alt="{{ $teacher->name }}"></td>
                                 </td>
                                 <td>
                                     @if ($teacher->active_status)

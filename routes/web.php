@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
 use App\Http\Controllers\adminDashboard\AdminDashboardController;
+use App\Http\Controllers\classNumber\ClassNumberController;
+use App\Http\Controllers\classSection\ClassSectionController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
 use App\Http\Controllers\homePage\HomePageController;
 use App\Http\Controllers\teacherInfo\TeacherInfoController;
@@ -54,7 +56,21 @@ Route::get('/ourschool-admin/teacher-login-signup-info/view', [TeacherLoginSignu
 Route::post('/ourschool-admin/teacher-login-signup-info/create', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageCreate'])->name('admin.teacher-login-signup-info.create');
 
 
+Route::get('/ourschool-admin/class-number/view', [ClassNumberController::class, 'classNumberPageView'])->name('admin.class-number.view');
+Route::post('/ourschool-admin/class-number/create', [ClassNumberController::class, 'classNumberPageCreate'])->name('admin.class-number.create');
+Route::get('/ourschool-admin/class-number/edit/{id}', [ClassNumberController::class, 'classNumberPageEdit'])->name('admin.class-number.edit');
+Route::post('/ourschool-admin/class-number/update/{id}', [ClassNumberController::class, 'classNumberPageUpdate'])->name('admin.class-number.update');
+Route::get('/ourschool-admin/class-number/delete/{id}', [ClassNumberController::class, 'classNumberPageDelete'])->name('admin.class-number.delete');
+
+
+Route::get('/ourschool-admin/class-section/view', [ClassSectionController::class, 'classSectionPageView'])->name('admin.class-section.view');
+Route::post('/ourschool-admin/class-section/create', [ClassSectionController::class, 'classSectionPageCreate'])->name('admin.class-section.create');
+Route::get('/ourschool-admin/class-section/edit/{id}', [ClassSectionController::class, 'classSectionPageEdit'])->name('admin.class-section.edit');
+Route::post('/ourschool-admin/class-section/update/{id}', [ClassSectionController::class, 'classSectionPageUpdate'])->name('admin.class-section.update');
+Route::get('/ourschool-admin/class-section/delete/{id}', [ClassSectionController::class, 'classSectionPageDelete'])->name('admin.class-section.delete');
+
 Route::get('/ourschool-admin/class-record/view', [OnlineClassVideoController::class, 'classVideoPageView'])->name('admin.class-record.view');
+Route::get('/ourschool-admin/class-record/select-data/{id}', [OnlineClassVideoController::class, 'classSectionSelectData'])->name('admin.class-record.select-data');
 Route::post('/ourschool-admin/class-record/create', [OnlineClassVideoController::class, 'classVideoPageCreate'])->name('admin.class-record.create');
 Route::get('/ourschool-admin/class-record/edit/{id}', [OnlineClassVideoController::class, 'classVideoPageEdit'])->name('admin.class-record.edit');
 Route::post('/ourschool-admin/class-record/update/{id}', [OnlineClassVideoController::class, 'classVideoPageUpdate'])->name('admin.class-record.update');

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('online_class_video_links', function (Blueprint $table) {
+        Schema::create('class_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('video_link');
+            $table->unsignedBigInteger('class_number_id');
+            $table->foreign('class_number_id')->references('id')->on('class_numbers')->onDelete('cascade');
+            $table->string('class_section');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('online_class_video_links');
+        Schema::dropIfExists('class_sections');
     }
 };

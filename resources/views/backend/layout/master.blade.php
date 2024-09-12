@@ -52,6 +52,8 @@
         @include('backend.partial.footer')
 
     </div>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="{{ asset('backend/adminend/asset/vendors/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('backend/adminend/asset/vendors/popper.js/dist/umd/popper.min.js') }}"></script>

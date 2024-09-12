@@ -6,7 +6,7 @@
             <strong>Teacher Info - Form (1)</strong>
         </div>
         <div class="card-body card-block">
-            <form action="{{route('admin.teacher.another.create')}}" method="post" enctype="multipart/form-data"
+            <form action="{{ route('admin.teacher.another.create') }}" method="post" enctype="multipart/form-data"
                 class="form-horizontal">
                 @csrf
 
@@ -15,13 +15,29 @@
                         {{ session('success') }}
                     </div>
                 @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group row">
                     <label for="teacheraccount" class="col-md-3 col-form-label">Email Account</label>
                     <div class="col-md-9">
                         <select id="teacheraccount" name="teacherAccount" class="form-control">
                             <option value="" disabled selected>Select the email</option>
                             @foreach ($teacheraccount as $acc)
-                                <option value="{{$acc->id}}">
+                                <option value="{{ $acc->id }}">
                                     {{ $acc->email }}</option>
                             @endforeach
                         </select>
@@ -90,8 +106,8 @@
                 <div class="form-group row">
                     <label for="url-input" class="col-md-3 col-form-label">Photo (Google Drive link)</label>
                     <div class="col-md-9">
-                        <input type="text" id="url-input" name="teacherPhoto"
-                            placeholder="Enter the Google drive link" class="form-control">
+                        <input type="text" id="url-input" name="teacherPhoto" placeholder="Enter the Google drive link"
+                            class="form-control">
                         <small class="form-text text-muted">Please enter the Google drive link</small>
                     </div>
                 </div>
@@ -135,7 +151,8 @@
                         <tr>
                             <th scope="row">{{ $key + 1 }}</th>
                             <td>{{ $teacher->name }}</td>
-                            <td><img src="https://drive.google.com/thumbnail?id={{$teacher->photo_link}}" alt="{{$teacher->name}}"></td>
+                            <td><img src="https://drive.google.com/thumbnail?id={{ $teacher->photo_link }}"
+                                    alt="{{ $teacher->name }}"></td>
                             </td>
                             <td>
                                 @if ($teacher->active_status)
@@ -145,8 +162,7 @@
                                 @endif
                             </td>
                             <td><a href="{{ url('/ourschool-admin/teacher/another/edit', $teacher['id']) }}"
-                                    class="edit btn btn-primary" type="button"
-                                    data-id="{{ $teacher->id }}">Edit</a>
+                                    class="edit btn btn-primary" type="button" data-id="{{ $teacher->id }}">Edit</a>
                                 <a href="{{ url('/ourschool-admin/teacher/delete', $teacher['id']) }}"
                                     class="delete btn btn-danger" type="button" data-id="{{ $teacher->id }}"
                                     onclick="return confirm('Are you sure to delete this?')">Delete</a>

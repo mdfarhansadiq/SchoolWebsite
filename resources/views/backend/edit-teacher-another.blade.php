@@ -6,8 +6,8 @@
             <strong>Edit Teacher Info - Form</strong>
         </div>
         <div class="card-body card-block">
-            <form action="{{ route('admin.teacher.another.update', $teacher->id) }}" method="post" enctype="multipart/form-data"
-                class="form-horizontal">
+            <form action="{{ route('admin.teacher.another.update', $teacher->id) }}" method="post"
+                enctype="multipart/form-data" class="form-horizontal">
                 @csrf
 
                 @if (session('success'))
@@ -15,12 +15,29 @@
                         {{ session('success') }}
                     </div>
                 @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group row">
                     <label for="teacheraccount" class="col-md-3 col-form-label">Email Account</label>
                     <div class="col-md-9">
                         <select id="teacheraccount" name="teacherAccount" class="form-control">
                             @foreach ($teacheraccount as $acc)
-                                <option value="{{$acc->id}}" {{ $teacher->teacher_acc_id == $acc->id ? 'selected' : '' }}>
+                                <option value="{{ $acc->id }}"
+                                    {{ $teacher->teacher_acc_id == $acc->id ? 'selected' : '' }}>
                                     {{ $acc->email }}</option>
                             @endforeach
                         </select>

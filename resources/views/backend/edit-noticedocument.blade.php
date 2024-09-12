@@ -23,6 +23,28 @@
                 <form action="{{ route('admin.noticedocument.update', $data->id) }}" method="post" enctype="multipart/form-data"
                     class="form-horizontal">
                     @csrf
+
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     <div class="form-group row">
                         <label for="notice-input" class="col-md-3 col-form-label">Notice Title</label>
                         <div class="col-md-9">
