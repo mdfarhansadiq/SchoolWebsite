@@ -7,6 +7,7 @@ use App\Http\Controllers\classNumber\ClassNumberController;
 use App\Http\Controllers\classSection\ClassSectionController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
 use App\Http\Controllers\homePage\HomePageController;
+use App\Http\Controllers\lectureAndNoteFile\LectureNoteFileController;
 use App\Http\Controllers\teacherInfo\TeacherInfoController;
 use App\Http\Controllers\teacherLoginSignup\TeacherLoginSignupController;
 use App\Http\Controllers\onlineClassVideo\OnlineClassVideoController;
@@ -75,6 +76,26 @@ Route::post('/ourschool-admin/class-record/create', [OnlineClassVideoController:
 Route::get('/ourschool-admin/class-record/edit/{id}', [OnlineClassVideoController::class, 'classVideoPageEdit'])->name('admin.class-record.edit');
 Route::post('/ourschool-admin/class-record/update/{id}', [OnlineClassVideoController::class, 'classVideoPageUpdate'])->name('admin.class-record.update');
 Route::get('/ourschool-admin/class-record/delete/{id}', [OnlineClassVideoController::class, 'classVideoPageDelete'])->name('admin.class-record.delete');
+
+Route::get('/ourschool-admin/lecture-note-file/view', [LectureNoteFileController::class, 'lectureNoteFilePageView'])->name('admin.lecture-note-file.view');
+Route::get('/ourschool-admin/lecture-note-file/select-data/{id}', [OnlineClassVideoController::class, 'classSectionSelectData'])->name('admin.class-record.select-data');
+Route::post('/ourschool-admin/lecture-note-file/create', [LectureNoteFileController::class, 'lectureNoteFilePageCreate'])->name('admin.lecture-note-file.create');
+Route::get('/ourschool-admin/lecture-note-file/edit/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageEdit'])->name('admin.lecture-note-file.edit');
+Route::post('/ourschool-admin/lecture-note-file/update/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageUpdate'])->name('admin.lecture-note-file.update');
+Route::get('/ourschool-admin/lecture-note-file/delete/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageDelete'])->name('admin.lecture-note-file.delete');
+
+
+// Route::get('/teacher/login/view', [TeacherLoginSignupController::class, 'teacherLoginPageView'])->name('teacher.login');
+// Route::post('/teacher/login/create', [TeacherLoginSignupController::class, 'teacherLoginPageCreate'])->name('teacher.login.create');
+// Route::post('/teacher/logout', [TeacherLoginSignupController::class, 'teacherLogout'])->name('teacher.logout');
+
+// Route::get('/teacher/dashboard', [TeacherLoginSignupController::class, 'teacherDashboardPageView'])->name('teacher.dashboard');
+
+// Route::get('/teacher/profile', [TeacherLoginSignupController::class, 'teacherProfilePageView'])->name('teacher.profile');
+// Route::post('/teacher/profile/update', [TeacherLoginSignupController::class, 'teacherProfilePageUpdate'])->name('teacher.profile.update');
+
+// Route::get('/teacher/change-password', [TeacherLoginSignupController::class, 'teacherChangePasswordPageView'])->name('teacher.change-password');
+// Route::post('/teacher/change-password/update', [TeacherLoginSignupController::class, 'teacherChangePasswordPageUpdate'])->name('teacher.change-password.update');
 
 // Route::get('/ourschool-admin/login', function () {
 //     return view('backend.login');

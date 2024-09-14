@@ -16,6 +16,11 @@ class ClassNumber extends Model
 
     public function onlineClassVideoLinks()
     {
-        return $this->hasMany(OnlineClassVideoLink::class);
+        return $this->hasMany(OnlineClassVideoLink::class, 'class_number_id');
+    }
+
+    public function lectureNoteFiles()
+    {
+        return $this->hasMany(LectureNoteFile::class, 'class_number_id');
     }
 }

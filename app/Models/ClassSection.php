@@ -17,6 +17,11 @@ class ClassSection extends Model
 
     public function onlineClassVideoLinks()
     {
-        return $this->hasMany(OnlineClassVideoLink::class);
+        return $this->hasMany(OnlineClassVideoLink::class, 'class_section_id');
+    }
+
+    public function lectureNoteFiles()
+    {
+        return $this->hasMany(LectureNoteFile::class, 'class_section_id');
     }
 }
