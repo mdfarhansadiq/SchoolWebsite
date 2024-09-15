@@ -87,14 +87,73 @@ class LectureNoteFileController extends Controller
 
 
 
-    // public function lectureNoteFilePageEdit($id)
-    // {
-    //     $admin_role = Session::get('admin_login_role');
-    //     if ($admin_role == 1) {
-    //         $classnumber = ClassNumber::all();
-    //         $data = LectureNoteFile::find($id);
-    //         return view('backend.edit-lecture-note-file', compact('data', 'classnumber'));
-    //     }
-    //     return redirect()->route('admin.login');
-    // }
+    public function lectureNoteFilePageEdit($id)
+    {
+        $admin_role = Session::get('admin_login_role');
+        if ($admin_role == 1) {
+            $classnumber = ClassNumber::all();
+            $classsection = ClassSection::all();
+            $data = LectureNoteFile::find($id);
+            return view('backend.edit-lecture-note-file', compact('data', 'classnumber', 'classsection'));
+        }
+        return redirect()->route('admin.login');
+    }
+
+    public function lectureNoteFilePageUpdate(Request $request, $id)
+    {
+        $admin_role = Session::get('admin_login_role');
+        if ($admin_role == 1) {
+            // Validate the input fields
+            $request->validate([
+                'classNumber' => 'required',
+                'classSection' => 'required',
+                'classLectureNoteTitle' => 'required|string',
+                'classLectureNotelink' => 'required|string', // Ensure it's a valid URL format if needed
+            ]);
+
+            // Update the LectureNoteFile record
+            $data = LectureNoteFile::find($id);
+            $data->class_number_id = $request->classNumber;
+            $data->class_section_id = $request->classSection;
+            $data->title = $request->classLectureNoteTitle;
+
+            // Handling links, extracting Google Drive file IDs
+            $links = explode(',', $request->classLectureNotelink);
+            $fileIds = [];
+
+            foreach ($links as $link) {
+                $link = trim($link);
+                $fileId = $this->extractGoogleDriveFileId($link);
+                if ($fileId) {
+                    $fileIds[] = $fileId;
+                }
+                else if($fileId == null)
+                {
+                    $fileIds[] = $link;
+                }
+            }
+
+
+            $data->file_link = implode(',', $fileIds); // Save as comma-separated file IDs
+
+            $data->save();
+
+            // Flash success message and redirect back
+            Session::flash('success', 'Lecture Note File Updated Successfully');
+            return redirect()->back();
+        }
+        return redirect()->route('admin.login');
+    }
+
+    public function lectureNoteFilePageDelete($id)
+    {
+        $admin_role = Session::get('admin_login_role');
+        if ($admin_role == 1) {
+            $data = LectureNoteFile::find($id);
+            $data->delete();
+            Session::flash('success', 'Lecture Note File Deleted Successfully');
+            return redirect()->back();
+        }
+        return redirect()->route('admin.login');
+    }
 }

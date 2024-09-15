@@ -9,7 +9,7 @@
     </style>
 @endpush
 
-@section('title', 'Class video')
+@section('title', 'Lecture Note File')
 
 @section('content')
 
@@ -118,7 +118,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">File</th>
 
-                            {{-- <th scope="col">Action</th> --}}
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,18 +137,18 @@
                                         @endphp
                                         <a href="https://drive.google.com/uc?export=download&id={{ $link_Id }}"
                                             download>
-                                            <i class="fa fa-file" style="font-size:48px;color:red"></i>
+                                            <i class="fa fa-file-text" style="font-size:25px;color:#000000"></i>
                                         </a>
                                         <br>
                                         <br>
                                     @endforeach
                                 </td>
-                                {{-- <td><a href="{{ url('/ourschool-admin/class-record/edit', $file['id']) }}"
+                                <td><a href="{{ url('/ourschool-admin/lecture-note-file/edit', $file['id']) }}"
                                         class="edit btn btn-primary" type="button" data-id="{{ $file->id }}">Edit</a>
-                                    <a href="{{ url('/ourschool-admin/class-record/delete', $file['id']) }}"
+                                    <a href="{{ url('/ourschool-admin/lecture-note-file/delete', $file['id']) }}"
                                         class="delete btn btn-danger" type="button" data-id="{{ $file->id }}"
                                         onclick="return confirm('Are you sure to delete this class video?')">Delete</a>
-                                </td> --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
