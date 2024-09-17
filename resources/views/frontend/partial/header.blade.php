@@ -80,6 +80,13 @@
                         <li class="nav-item {{ request()->is('/contact') ? 'active' : '' }}">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            @if ($admin_logged_in == null)
+                                <a class="nav-link" href="{{ route('admin.login') }}">Login/Signup</a>
+                            @else
+                                <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
+                            @endif
+                        </li>
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link search" id="search">
                                 <i class="ti-search"></i>
@@ -102,8 +109,8 @@
                 <table class="border-0">
                     <tbody>
 
-                            <tr>
-                                @foreach ($noticeDocuments as $dt)
+                        <tr>
+                            @foreach ($noticeDocuments as $dt)
                                 <!-- ### For Notice - Start ### -->
 
                                 {{-- <td class="border-0">
@@ -134,14 +141,14 @@
                                 <td class="border-0">
 
 
-                                        <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
-                                        &nbsp; &nbsp; &nbsp;
+                                    <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
+                                    &nbsp; &nbsp; &nbsp;
 
 
 
                                 </td>
-                        @endforeach
-                        <!-- ### Notice End ### -->
+                            @endforeach
+                            <!-- ### Notice End ### -->
 
                         </tr>
                     </tbody>

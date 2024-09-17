@@ -28,7 +28,7 @@
 
     <div class="content mt-3">
 
-        <div class="col-sm-12">
+        {{-- <div class="col-sm-12">
             <div class="alert  alert-success alert-dismissible fade show" role="alert">
                 <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert
                 message.
@@ -36,29 +36,30 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        </div>
+        </div> --}}
+
 
 
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-1">
                 <div class="card-body pb-0">
                     <div class="dropdown float-right">
-                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
+                        {{-- <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
                             id="dropdownMenuButton1" data-toggle="dropdown">
                             <i class="fa fa-cog"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        </button> --}}
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <div class="dropdown-menu-content">
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{$num_class}}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <p class="text-light">Number of Class Level</p>
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart1"></canvas>
@@ -74,22 +75,22 @@
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
                     <div class="dropdown float-right">
-                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
+                        {{-- <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
                             id="dropdownMenuButton2" data-toggle="dropdown">
                             <i class="fa fa-cog"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        </button> --}}
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                             <div class="dropdown-menu-content">
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{$num_section}}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <p class="text-light">Number Of Section</p>
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
@@ -104,22 +105,22 @@
             <div class="card text-white bg-flat-color-3">
                 <div class="card-body pb-0">
                     <div class="dropdown float-right">
-                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
+                        {{-- <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
                             id="dropdownMenuButton3" data-toggle="dropdown">
                             <i class="fa fa-cog"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        </button> --}}
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                             <div class="dropdown-menu-content">
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{$num_teacher}}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <p class="text-light">Number Of Teacher</p>
 
                 </div>
 
@@ -134,22 +135,52 @@
             <div class="card text-white bg-flat-color-4">
                 <div class="card-body pb-0">
                     <div class="dropdown float-right">
-                        <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
+                        {{-- <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
                             id="dropdownMenuButton4" data-toggle="dropdown">
                             <i class="fa fa-cog"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                        </button> --}}
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                             <div class="dropdown-menu-content">
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{$num_notice}}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <p class="text-light">Number Of Notice Document</p>
+
+                    <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                        <canvas id="widgetChart4"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-4">
+                <div class="card-body pb-0">
+                    <div class="dropdown float-right">
+                        {{-- <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button"
+                            id="dropdownMenuButton4" data-toggle="dropdown">
+                            <i class="fa fa-cog"></i>
+                        </button> --}}
+                        {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                            <div class="dropdown-menu-content">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div> --}}
+                    </div>
+                    <h4 class="mb-0">
+                        <span class="count">{{$num_video}}</span>
+                    </h4>
+                    <p class="text-light">Number Of Class Record Video</p>
 
                     <div class="chart-wrapper px-3" style="height:70px;" height="70">
                         <canvas id="widgetChart4"></canvas>
@@ -160,7 +191,7 @@
         </div>
         <!--/.col-->
 
-        <div class="col-lg-3 col-md-6">
+        {{-- <div class="col-lg-3 col-md-6">
             <div class="social-box facebook">
                 <i class="fa fa-facebook"></i>
                 <ul>
@@ -421,7 +452,7 @@
                 </div>
             </div>
             <!-- /# card -->
-        </div>
+        </div> --}}
 
 
     </div> <!-- .content -->
