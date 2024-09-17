@@ -115,19 +115,11 @@
 
                         <tr>
                             @foreach ($noticeDocuments as $dt)
-                                
                                 <td class="border-0">
-
-
                                     <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
                                     &nbsp; &nbsp; &nbsp;
-
-
-
                                 </td>
                             @endforeach
-                            <!-- ### Notice End ### -->
-
                         </tr>
                     </tbody>
                 </table>
