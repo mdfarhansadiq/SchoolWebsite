@@ -84,7 +84,11 @@
                             @if ($admin_logged_in == null)
                                 <a class="nav-link" href="{{ route('admin.login') }}">Login/Signup</a>
                             @else
-                                <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
+                                <form method="POST" action="{{ route('admin.logout') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary" style="color: #fff"
+                                        id="signoutbtn">Logout</button>
+                                </form>
                             @endif
                         </li>
                         {{-- <li class="nav-item">
