@@ -115,33 +115,7 @@
 
                         <tr>
                             @foreach ($noticeDocuments as $dt)
-                                <!-- ### For Notice - Start ### -->
-
-                                {{-- <td class="border-0">
-
-                                <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
-                                    target="_blank"> জরুরি বিজ্ঞপ্তি </a> &nbsp; &nbsp; &nbsp;
-
-                            </td>
-
-
-                            <td class="border-0">
-
-                                <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/97e/e50/66d97ee506a3b058866013.pdf"
-                                    target="_blank"> এইচএসসি ২য় বর্ষ ২০২৪ ছাত্রদের ব্যাবহারিক ক্লাসের রুটিন </a>
-                                &nbsp; &nbsp; &nbsp;
-
-                            </td> --}}
-
-
-                                {{-- <td class="border-0">
-
-                                <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/57d/37c/66d57d37cfbbd674181677.pdf"
-                                    target="_blank"> এইচএসসি প্রথম বর্ষ-২০২৪ শিক্ষার্থীদের স্থায়ী রোল নম্বর প্রকাশ
-                                </a> &nbsp; &nbsp; &nbsp;
-
-                            </td> --}}
-
+                                
                                 <td class="border-0">
 
 
