@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
 use App\Http\Controllers\adminDashboard\AdminDashboardController;
 use App\Http\Controllers\adminRolePermission\AdminRolePermissionController;
+use App\Http\Controllers\admissionInfo\AdmissionInfoController;
 use App\Http\Controllers\classNumber\ClassNumberController;
 use App\Http\Controllers\classSection\ClassSectionController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
@@ -88,6 +89,18 @@ Route::post('/ourschool-admin/lecture-note-file/create', [LectureNoteFileControl
 Route::get('/ourschool-admin/lecture-note-file/edit/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageEdit'])->name('admin.lecture-note-file.edit');
 Route::post('/ourschool-admin/lecture-note-file/update/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageUpdate'])->name('admin.lecture-note-file.update');
 Route::get('/ourschool-admin/lecture-note-file/delete/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageDelete'])->name('admin.lecture-note-file.delete');
+
+
+Route::get('/ourschool-admin/admission-info/view', [AdmissionInfoController::class, 'admissionInfoPageView'])->name('admin.admission-info.view');
+Route::post('/ourschool-admin/admission-info/create', [AdmissionInfoController::class, 'admissionInfoPageCreate'])->name('admin.admission-info.create');
+Route::get('/ourschool-admin/admission-info/edit/{id}', [AdmissionInfoController::class, 'admissionInfoPageEdit'])->name('admin.admission-info.edit');
+Route::post('/ourschool-admin/admission-info/update/{id}', [AdmissionInfoController::class, 'admissionInfoPageUpdate'])->name('admin.admission-info.update');
+Route::get('/ourschool-admin/admission-info/delete/{id}', [AdmissionInfoController::class, 'admissionInfoPageDelete'])->name('admin.admission-info.delete');
+
+
+// Teacher Login and Dashboard
+// Route::get('/teacher/signup/view', [TeacherLoginSignupController::class, 'teacherSignupPageView'])->name('teacher.signup');
+// Route::post('/teacher/signup/create', [TeacherLoginSignupController::class, 'teacherSignupPageCreate'])->name('teacher.signup.create');
 
 
 // Route::get('/teacher/login/view', [TeacherLoginSignupController::class, 'teacherLoginPageView'])->name('teacher.login');

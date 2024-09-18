@@ -49,6 +49,9 @@
                 <li class="nav-item {{ request()->is('ourschool-admin/lecture-note-file/view') ? 'active' : '' }}">
                     <a href="{{ url('ourschool-admin/lecture-note-file/view') }}"> <i class="menu-icon fa fa-files-o"></i>Lecture/Note</a>
                 </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/admission-info/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/admission-info/view') }}"> <i class="menu-icon fa fa-info-circle"></i>Admission Info</a>
+                </li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
