@@ -37,6 +37,7 @@ class AdminSignupLoginController extends Controller
 
             if ($count_data == 0) {
                 $data->role = 1;
+                Session::put('admin_email', $data->email);
                 Session::put('admin_login_role', 1);
             } else {
                 $data->role = 0;
@@ -73,6 +74,7 @@ class AdminSignupLoginController extends Controller
                 $password = Crypt::decrypt($data->password);
                 if ($request->password == $password) {
                     if ($data->role == 1) {
+                        Session::put('admin_email', $data->email);
                         Session::put('admin_login_role', 1);
                         // return redirect()->route('admin.dashboard');
                         return redirect('/ourschool-admin/dashboard');

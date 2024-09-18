@@ -20,6 +20,9 @@
                     <a href="{{ url('ourschool-admin/dashboard') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard
                     </a>
                 </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/role/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/admin-role/view') }}"> <i class="menu-icon fa fa-user"></i>Admin Role-Permission</a>
+                </li>
                 <li class="nav-item {{ request()->is('ourschool-admin/noticedocument/view') ? 'active' : '' }}">
                     <a href="{{ url('ourschool-admin/noticedocument/view') }}"> <i
                             class="menu-icon fa fa-file-text"></i>Notice

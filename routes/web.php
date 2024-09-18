@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
 use App\Http\Controllers\adminDashboard\AdminDashboardController;
+use App\Http\Controllers\adminRolePermission\AdminRolePermissionController;
 use App\Http\Controllers\classNumber\ClassNumberController;
 use App\Http\Controllers\classSection\ClassSectionController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
@@ -25,7 +26,6 @@ Route::get('/notice', [NoticeDocumentController::class, 'noticeDocumentFrontendV
 
 
 
-
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
 Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');
@@ -34,6 +34,11 @@ Route::post('/ourschool-admin/logout', [AdminSignupLoginController::class, 'admi
 
 Route::get('/ourschool-admin/dashboard', [AdminDashboardController::class, 'adminDashboardPageView'])->name('admin.dashboard');
 
+Route::get('/ourschool-admin/admin-role/view', [AdminRolePermissionController::class, 'adminRolePermissionPageView'])->name('admin.role.view');
+Route::post('/ourschool-admin/admin-role/create', [AdminRolePermissionController::class, 'adminRolePermissionPageCreate'])->name('admin.role.create');
+Route::get('/ourschool-admin/admin-role/edit/{id}', [AdminRolePermissionController::class, 'adminRolePermissionPageEdit'])->name('admin.role.edit');
+Route::post('/ourschool-admin/admin-role/update/{id}', [AdminRolePermissionController::class, 'adminRolePermissionPageUpdate'])->name('admin.role.update');
+Route::get('/ourschool-admin/admin-role/delete/{id}', [AdminRolePermissionController::class, 'adminRolePermissionPageDelete'])->name('admin.role.delete');
 
 Route::get('/ourschool-admin/noticedocument/view', [NoticeDocumentController::class, 'noticeDocumentPageView'])->name('admin.noticedocument.view');
 Route::post('/ourschool-admin/noticedocument/create', [NoticeDocumentController::class, 'noticeDocumentPageCreate'])->name('admin.noticedocument.create');
