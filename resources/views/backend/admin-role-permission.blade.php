@@ -120,7 +120,7 @@
                                             data-id="{{ $dt->id }}">Edit</a>
                                         <a href="{{ url('/ourschool-admin/admin-role/delete', $dt->id) }}"
                                             class="delete btn btn-danger" type="button" data-id="{{ $dt->id }}"
-                                            onclick="return confirm('Are you sure to delete this class level?')">Delete</a>
+                                            onclick="return confirm('Are you sure to delete this admin?')">Delete</a>
                                     @endif
                                 </td>
                             </tr>
