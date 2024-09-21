@@ -136,41 +136,60 @@
         </div>
 
         <div class="card-body">
-            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Serial No.</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Photo</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($data as $key => $teacher)
+            <form action="{{ route('admin.teacher-info-publish-status.update') }}" method="POST">
+                @csrf
+                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead class="table-dark">
                         <tr>
-                            <th scope="row">{{ $key + 1 }}</th>
-                            <td>{{ $teacher->name }}</td>
-                            <td><img src="https://drive.google.com/thumbnail?id={{ $teacher->photo_link }}"
-                                    alt="{{ $teacher->name }}"></td>
-                            </td>
-                            <td>
-                                @if ($teacher->active_status)
-                                    Published
-                                @else
-                                    Unpublished
-                                @endif
-                            </td>
-                            <td><a href="{{ url('/ourschool-admin/teacher/another/edit', $teacher['id']) }}"
-                                    class="edit btn btn-primary" type="button" data-id="{{ $teacher->id }}">Edit</a>
-                                <a href="{{ url('/ourschool-admin/teacher/delete', $teacher['id']) }}"
-                                    class="delete btn btn-danger" type="button" data-id="{{ $teacher->id }}"
-                                    onclick="return confirm('Are you sure to delete this?')">Delete</a>
-                            </td>
+                            <th scope="col"><input type="checkbox" id="select-all"></th>
+                            <th scope="col">Serial No.</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $key => $teacher)
+                            <tr>
+                                <td><input type="checkbox" name="selected_teachers[]" value="{{ $teacher->id }}">
+                                </td>
+                                <th scope="row">{{ $key + 1 }}</th>
+                                <td>{{ $teacher->name }}</td>
+                                <td><img src="https://drive.google.com/thumbnail?id={{ $teacher->photo_link }}"
+                                        alt="{{ $teacher->name }}"></td>
+                                </td>
+                                <td>
+                                    @if ($teacher->active_status)
+                                        Published
+                                    @else
+                                        Unpublished
+                                    @endif
+                                </td>
+                                <td><a href="{{ url('/ourschool-admin/teacher/edit', $teacher['id']) }}"
+                                        class="edit btn btn-primary" type="button"
+                                        data-id="{{ $teacher->id }}">Edit</a>
+                                    <a href="{{ url('/ourschool-admin/teacher/delete', $teacher['id']) }}"
+                                        class="delete btn btn-danger" type="button" data-id="{{ $teacher->id }}"
+                                        onclick="return confirm('Are you sure to delete this?')">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success">Teacher Info Publish</button>
+            </form>
         </div>
     </div>
 @endsection
+
+
+@push('js')
+    <script>
+        // Select/Deselect all checkboxes
+        document.getElementById('select-all').addEventListener('click', function(e) {
+            const checkboxes = document.querySelectorAll('input[name="selected_teachers[]"]');
+            checkboxes.forEach(checkbox => checkbox.checked = e.target.checked);
+        });
+    </script>
+@endpush

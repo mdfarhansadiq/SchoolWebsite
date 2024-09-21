@@ -59,6 +59,11 @@ Route::post('/ourschool-admin/teacher/another/create', [TeacherInfoController::c
 Route::get('/ourschool-admin/teacher/another/edit/{id}', [TeacherInfoController::class, 'teacherInfoAnotherPageEdit'])->name('admin.teacher.another.edit');
 Route::post('/ourschool-admin/teacher/another/update/{id}', [TeacherInfoController::class, 'teacherInfoAnotherPageUpdate'])->name('admin.teacher.another.update');
 
+
+Route::post('/ourschool-admin/teacher/publish-status/update', [TeacherInfoController::class, 'teacherInfoPublishStatusUpdate'])->name('admin.teacher-info-publish-status.update');
+Route::post('/ourschool-admin/teacher/publish-status/delete', [TeacherInfoController::class, 'teacherInfoPublishStatusDelete'])->name('admin.teacher-info-publish-status.delete');
+
+
 Route::get('/ourschool-admin/teacher-login-signup-info/view', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageView'])->name('admin.teacher-login-signup-info.view');
 Route::post('/ourschool-admin/teacher-login-signup-info/create', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageCreate'])->name('admin.teacher-login-signup-info.create');
 
@@ -68,7 +73,6 @@ Route::post('/ourschool-admin/class-number/create', [ClassNumberController::clas
 Route::get('/ourschool-admin/class-number/edit/{id}', [ClassNumberController::class, 'classNumberPageEdit'])->name('admin.class-number.edit');
 Route::post('/ourschool-admin/class-number/update/{id}', [ClassNumberController::class, 'classNumberPageUpdate'])->name('admin.class-number.update');
 Route::get('/ourschool-admin/class-number/delete/{id}', [ClassNumberController::class, 'classNumberPageDelete'])->name('admin.class-number.delete');
-
 
 Route::get('/ourschool-admin/class-section/view', [ClassSectionController::class, 'classSectionPageView'])->name('admin.class-section.view');
 Route::post('/ourschool-admin/class-section/create', [ClassSectionController::class, 'classSectionPageCreate'])->name('admin.class-section.create');
@@ -89,7 +93,6 @@ Route::post('/ourschool-admin/lecture-note-file/create', [LectureNoteFileControl
 Route::get('/ourschool-admin/lecture-note-file/edit/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageEdit'])->name('admin.lecture-note-file.edit');
 Route::post('/ourschool-admin/lecture-note-file/update/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageUpdate'])->name('admin.lecture-note-file.update');
 Route::get('/ourschool-admin/lecture-note-file/delete/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageDelete'])->name('admin.lecture-note-file.delete');
-
 
 Route::get('/ourschool-admin/admission-info/view', [AdmissionInfoController::class, 'admissionInfoPageView'])->name('admin.admission-info.view');
 Route::post('/ourschool-admin/admission-info/create', [AdmissionInfoController::class, 'admissionInfoPageCreate'])->name('admin.admission-info.create');

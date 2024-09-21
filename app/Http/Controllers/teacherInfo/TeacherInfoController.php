@@ -287,4 +287,29 @@ class TeacherInfoController extends Controller
             return redirect()->route('admin.login');
         }
     }
+
+
+    public function teacherInfoPublishStatusUpdate(Request $request)
+    {
+        // Get the selected teacher IDs from the form submission
+        $selectedTeacherIds = $request->input('selected_teachers');
+
+        // Check if any teacher is selected
+        if (!$selectedTeacherIds || count($selectedTeacherIds) === 0) {
+            Session::flash('error', 'No teachers selected!');
+            return redirect()->back();
+        }
+
+        // Fetch the selected teachers from the database
+        $teachers = TeacherInfo::whereIn('id', $selectedTeacherIds)->get();
+
+        // Perform bulk edit logic here
+        // Example: update the status of selected teachers
+        foreach ($teachers as $teacher) {
+            $teacher->active_status = 1; // Example: set all selected teachers to "Published"
+            $teacher->save();
+        }
+        Session::flash('success', 'Selected teachers have been successfully updated.');
+        return redirect()->back();
+    }
 }
