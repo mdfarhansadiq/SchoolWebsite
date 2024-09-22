@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from preview.colorlib.com/theme/edustage/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Sep 2024 05:52:41 GMT -->
-
 <head>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
-    <title>Gonga Pur Govt. Primary School</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/bootstrap.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/css/flaticon.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/css/themify-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/vendors/owl-carousel/owl.carousel.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/vendors/nice-select/css/nice-select.css') }}" />
-
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
+    <title>Person Details</title>
 
-    <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
     <style>
         #rs-about {
             padding: 60px 0;
@@ -284,108 +273,53 @@
         .fa-angle-up {
             font-size: 20px;
         }
+
+        /* Styling the person details container */
+        .person-details-container {
+            margin-top: 50px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .person-img {
+            max-width: 200px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .person-info {
+            padding-left: 20px;
+        }
+
+        .person-info h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .person-info p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .person-contact a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .person-contact a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <script nonce="6685f9e1-74e5-4a8a-9212-9993819d0a37">
-        try {
-            (function(w, d) {
-                ! function(j, k, l, m) {
-                    if (j.zaraz) console.error("zaraz is loaded twice");
-                    else {
-                        j[l] = j[l] || {};
-                        j[l].executed = [];
-                        j.zaraz = {
-                            deferred: [],
-                            listeners: []
-                        };
-                        j.zaraz._v = "5796";
-                        j.zaraz.q = [];
-                        j.zaraz._f = function(n) {
-                            return async function() {
-                                var o = Array.prototype.slice.call(arguments);
-                                j.zaraz.q.push({
-                                    m: n,
-                                    a: o
-                                })
-                            }
-                        };
-                        for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
-                        j.zaraz.init = () => {
-                            var q = k.getElementsByTagName(m)[0],
-                                r = k.createElement(m),
-                                s = k.getElementsByTagName("title")[0];
-                            s && (j[l].t = k.getElementsByTagName("title")[0].text);
-                            j[l].x = Math.random();
-                            j[l].w = j.screen.width;
-                            j[l].h = j.screen.height;
-                            j[l].j = j.innerHeight;
-                            j[l].e = j.innerWidth;
-                            j[l].l = j.location.href;
-                            j[l].r = k.referrer;
-                            j[l].k = j.screen.colorDepth;
-                            j[l].n = k.characterSet;
-                            j[l].o = (new Date).getTimezoneOffset();
-                            if (j.dataLayer)
-                                for (const w of Object.entries(Object.entries(dataLayer).reduce(((x, y) => ({
-                                        ...x[1],
-                                        ...y[1]
-                                    })), {}))) zaraz.set(w[0], w[1], {
-                                    scope: "page"
-                                });
-                            j[l].q = [];
-                            for (; j.zaraz.q.length;) {
-                                const z = j.zaraz.q.shift();
-                                j[l].q.push(z)
-                            }
-                            r.defer = !0;
-                            for (const A of [localStorage, sessionStorage]) Object.keys(A || {}).filter((C => C
-                                .startsWith("_zaraz_"))).forEach((B => {
-                                try {
-                                    j[l]["z_" + B.slice(7)] = JSON.parse(A.getItem(B))
-                                } catch {
-                                    j[l]["z_" + B.slice(7)] = A.getItem(B)
-                                }
-                            }));
-                            r.referrerPolicy = "origin";
-                            r.src = "../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[
-                                l])));
-                            q.parentNode.insertBefore(r, q)
-                        };
-                        ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener(
-                            "DOMContentLoaded", zaraz.init)
-                    }
-                }(w, d, "zarazData", "script");
-                window.zaraz._p = async bv => new Promise((bw => {
-                    if (bv) {
-                        bv.e && bv.e.forEach((bx => {
-                            try {
-                                const by = d.querySelector("script[nonce]"),
-                                    bz = by?.nonce || by?.getAttribute("nonce"),
-                                    bA = d.createElement("script");
-                                bz && (bA.nonce = bz);
-                                bA.innerHTML = bx;
-                                bA.onload = () => {
-                                    d.head.removeChild(bA)
-                                };
-                                d.head.appendChild(bA)
-                            } catch (bB) {
-                                console.error(`Error executing script: ${bx}\n`, bB)
-                            }
-                        }));
-                        Promise.allSettled((bv.f || []).map((bC => fetch(bC[0], bC[1]))))
-                    }
-                    bw()
-                }));
-                zaraz._p({
-                    "e": ["(function(w,d){})(window,document)"]
-                });
-            })(window, document)
-        } catch (e) {
-            throw fetch("/cdn-cgi/zaraz/t"), e;
-        };
-    </script>
 </head>
 
 <body>
+
     <header class="header_area">
         <div class="main_menu">
             {{-- <div class="search_input" id="search_input_box">
@@ -404,8 +338,8 @@
                             <i class="glyph-icon flaticon-email mr-2"></i>
                             <div class="info-text">
                                 <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
-                                    src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
-                                    alt /></a>
+                                        src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
+                                        alt /></a>
                                 <a href="mailto:ourschool@example.edu" style="color: #002347; text-decoration: none;">
                                     <span>Mail Us: </span>
                                     <span>ourschool@example.edu</span>
@@ -448,7 +382,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Class Record</a>
                             </li>
-                            <li class="nav-item {{ request()->is('/teacher') ? 'active' : '' }}">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/teacher') }}">Our Teacher</a>
                             </li>
                             <li class="nav-item {{ request()->is('/about') ? 'active' : '' }}">
@@ -530,8 +464,8 @@
                     <div class="single_feature">
                         <div class="icon"><span class="flaticon-student"></span></div>
                         <div class="desc">
-                            <h4 class="mt-3 mb-2">বৃত্তি সুবিধা</h4>
-                            <p>
+                            <h4 class="mt-3 mb-2" style="justify-content: center;">বৃত্তি সুবিধা</h4>
+                            <p style="">
                                 One make creepeth, man bearing theira firmament won't great
                                 heaven
                             </p>
@@ -565,42 +499,34 @@
             </div>
         </div>
     </section>
-
     <div class="container">
-        <h1 class="mt-4" style="text-align: center">Notice</h1>
-
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Serial No.</th>
-
-                        <th scope="col">Title</th>
-                        <th scope="col">File Format</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($data as $key => $notice)
-                        <tr>
-                            <th scope="row">{{ $key + 1 }}</th>
-                            <td>{{ $notice->title }}</td>
-                            <td><a href="{{ url($notice->document_url) }}" target="_blank"
-                                    class="btn btn-primary"><img style="width:130px; height: 100px;"
-                                        src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
-                                        alt="" title="News image"></a></td>
-
-                        </tr>
-                    @endforeach
-                </tbody>
-
-
-            </table>
+        <div class="row person-details-container">
+            <div class="col-md-4 text-center">
+                <!-- Person Image -->
+                <img style="width:230px; height: auto"
+                    src="https://drive.google.com/thumbnail?id={{ $teacher_info->photo_link }}"
+                    alt="{{ $teacher_info->name }}" title="{{ $teacher_info->name }}">
+            </div>
+            <div class="col-md-8 person-info">
+                <!-- Person Name -->
+                <h2>{{ $teacher_info->name }}</h2>
+                <!-- Short Bio -->
+                <p>{!! $teacher_info->educational_qualification !!}</p>
+                <!-- Contact Info -->
+                <div class="person-contact">
+                    <a href="mailto:johndoe@example.com"><i class="fa fa-envelope"></i> johndoe@example.com</a><br>
+                    <a href="tel:+1234567890"><i class="fa fa-phone"></i> +123 456 7890</a>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <div id="scrollUp" style="display: none;">
+        <i class="fa fa-angle-up"></i>
+    </div>
 
-
+    <!-- Footer -->
     <footer class="footer-area section_gap">
         <div class="container">
             <div class="row">
@@ -682,11 +608,7 @@
         </div>
     </footer>
 
-    <div id="scrollUp" style="display: block;">
-        <i class="fa fa-angle-up"></i>
-    </div>
-
-
+    <!-- Scripts -->
     <script src="{{ asset('frontend/asset/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('frontend/asset/js/popper.js') }}"></script>
     <script src="{{ asset('frontend/asset/js/bootstrap.min.js') }}"></script>
@@ -701,51 +623,12 @@
     <script src="{{ asset('frontend/asset/js/theme.js') }}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-        data-cf-beacon='{"rayId":"8be3f4537a66ba53","version":"2024.8.0","serverTiming":{"name":{"cfL4":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}'
-        crossorigin="anonymous"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
-    <!-- Custom DataTables script -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
-    </script>
-
-    <!-- Custom DataTables script -->
-    <script>
-        new DataTable('#example', {
-            responsive: true
-        });
-    </script>
 
     <script>
-        // When the user scrolls down 100px from the top of the document, show the button
+        // Scroll to top functionality
         window.onscroll = function() {
             scrollFunction();
         };
-
-
 
         function scrollFunction() {
             const scrollUpButton = document.getElementById("scrollUp");
@@ -756,7 +639,6 @@
             }
         }
 
-        // When the user clicks on the button, scroll to the top of the document
         document.getElementById("scrollUp").addEventListener("click", function() {
             window.scrollTo({
                 top: 0,

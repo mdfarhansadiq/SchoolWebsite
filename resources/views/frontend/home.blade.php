@@ -2,16 +2,29 @@
 
 @push('css')
     <style>
-        /* Slider container */
         .slider {
-            position: relative;
-            width: 100vw;
-            /* Full screen width */
-            height: auto;
-            /* Full screen height */
-            margin: 0;
-            padding: 0;
+            height: 600px;
+            /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            /* Horizontally center image */
+            align-items: center;
+            /* Vertically center image */
+            background-color: #f5f5f5;
+            /* Optional background color */
             overflow: hidden;
+            /* Ensure no overflow issues with large images */
+            position: relative;
+            /* For positioning arrows inside the slider */
+        }
+
+        .slider img {
+            max-width: 100%;
+            /* Ensure the image doesn't exceed the container's width */
+            height: auto;
+            /* Maintain aspect ratio */
+            object-fit: contain;
+            /* Keep the entire image visible without cropping */
         }
 
         /* Slide images */
@@ -19,15 +32,6 @@
             display: flex;
             width: 100%;
             transition: transform 0.5s ease-in-out;
-        }
-
-        .slides img {
-            width: 100vw;
-            /* Full screen width for images */
-            height: auto;
-            /* Full screen height for images */
-            object-fit: cover;
-            /* Ensures images cover the slider without stretching */
         }
 
         /* Left and right navigation arrows */
@@ -41,6 +45,8 @@
             padding: 10px;
             cursor: pointer;
             border: none;
+            z-index: 10;
+            /* Make sure arrows are on top */
         }
 
         .prev {
@@ -51,25 +57,7 @@
             right: 10px;
         }
 
-        /* Dots (indicators) */
-        .dots {
-            text-align: center;
-            margin-top: 10px;
-        }
 
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #bbb;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .active-dot {
-            background-color: #717171;
-        }
 
 
         #rs-about {
@@ -287,7 +275,7 @@
                         <button class="next" onclick="plusSlides(1)">&#10095;</button>
                         <!-- Dots for each slide -->
                         <div class="dots">
-                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot active-dot" onclick="currentSlide(1)"></span>
                             <span class="dot" onclick="currentSlide(2)"></span>
                             <span class="dot" onclick="currentSlide(3)"></span>
                         </div>
@@ -442,7 +430,7 @@
 
                                         </h4>
                                         <span class="price"> <span><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                {{$notice->created_at}}</span></span>
+                                                {{ $notice->created_at }}</span></span>
                                         ...
                                     </div>
                                 </div>
@@ -498,7 +486,7 @@
                             </div> --}}
 
 
-                            <div style="text-align: right; margin-top: 10px;"><a href="{{url('/notice')}}"
+                            <div style="text-align: right; margin-top: 10px;"><a href="{{ url('/notice') }}"
                                     class="vr_btn">More Notice</a></div>
 
                         </div>
@@ -828,6 +816,13 @@
                         </div>
                     </div>
                 </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="{{ url('/teacher') }}" target="_blank" class="btn btn-success" type="button"
+                        style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-size: 16px; border-radius: 5px; border: 2px solid #002347; color:#002347">
+                        All Teachers
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -839,124 +834,35 @@
                 <div class="col-lg-5">
                     <div class="main_title">
                         <h2 class="mb-3">শিক্ষকবৃন্দের বক্তব্য</h2>
-                        <p>
-                            শিক্ষা এমন একটি আলো যা যত বিতরণ করা যায় ততই বৃদ্ধি পায়। শিখতে থাকো, বড় হতে থাকো।
-                        </p>
+                        <p>শিক্ষা এমন একটি আলো যা যত বিতরণ করা যায় ততই বৃদ্ধি পায়। শিখতে থাকো, বড় হতে থাকো।</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="testi_slider owl-carousel">
-                    <div class="testi_item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <img src="{{ asset('frontend/asset/img/testimonials/t1.jpg') }}" alt />
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="testi_text">
-                                    <h4>Elite Martin</h4>
-                                    <p>
-                                        Him, made can't called over won't there on divide there
-                                        male fish beast own his day third seed sixth seas unto.
-                                        Saw from
-                                    </p>
+                    @foreach ($teacher_info as $dt)
+                        <div class="testi_item">
+                            <div class="card"> <!-- Add a card wrapper if needed -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <img src="https://drive.google.com/thumbnail?id={{ $dt->photo_link }}"
+                                            alt="{{ $dt->name }}" />
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="testi_text">
+                                            <h4>{{ $dt->name }}</h4>
+                                            <p><b style="color: #002347">Designation: {{ $dt->position }}</b></p>
+                                            {{-- <p>Education{!! $dt->educational_qualification !!}</p> --}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="testi_item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <img src="{{ asset('frontend/asset/img/testimonials/t2.jpg') }}" alt />
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="testi_text">
-                                    <h4>Davil Saden</h4>
-                                    <p>
-                                        Him, made can't called over won't there on divide there
-                                        male fish beast own his day third seed sixth seas unto.
-                                        Saw from
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testi_item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <img src="{{ asset('frontend/asset/img/testimonials/t1.jpg') }}" alt />
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="testi_text">
-                                    <h4>Elite Martin</h4>
-                                    <p>
-                                        Him, made can't called over won't there on divide there
-                                        male fish beast own his day third seed sixth seas unto.
-                                        Saw from
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testi_item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <img src="{{ asset('frontend/asset/img/testimonials/t2.jpg') }}" alt />
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="testi_text">
-                                    <h4>Davil Saden</h4>
-                                    <p>
-                                        Him, made can't called over won't there on divide there
-                                        male fish beast own his day third seed sixth seas unto.
-                                        Saw from
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testi_item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <img src="{{ asset('frontend/asset/img/testimonials/t1.jpg') }}" alt />
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="testi_text">
-                                    <h4>Elite Martin</h4>
-                                    <p>
-                                        Him, made can't called over won't there on divide there
-                                        male fish beast own his day third seed sixth seas unto.
-                                        Saw from
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testi_item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <img src="{{ asset('frontend/asset/img/testimonials/t2.jpg') }}" alt />
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="testi_text">
-                                    <h4>Davil Saden</h4>
-                                    <p>
-                                        Him, made can't called over won't there on divide there
-                                        male fish beast own his day third seed sixth seas unto.
-                                        Saw from
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
 
 @endsection
 @push('js')
@@ -1000,5 +906,18 @@
         setInterval(() => {
             plusSlides(1);
         }, 3000);
+
+
+        $(document).ready(function() {
+            $(".testi_slider").owlCarousel({
+                items: 1, // Show one item at a time
+                loop: true, // Enable looping
+                autoplay: true, // Enable autoplay
+                autoplayTimeout: 3000, // Set the interval for autoplay (3 seconds)
+                autoplayHoverPause: true, // Pause autoplay on hover
+                nav: true, // Show navigation arrows
+                dots: true // Show dots for indicators
+            });
+        });
     </script>
 @endpush

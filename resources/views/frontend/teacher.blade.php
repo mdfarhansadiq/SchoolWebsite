@@ -448,7 +448,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Class Record</a>
                             </li>
-                            <li class="nav-item {{ request()->is('/teacher') ? 'active' : '' }}">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="{{ url('/teacher') }}">Our Teacher</a>
                             </li>
                             <li class="nav-item {{ request()->is('/about') ? 'active' : '' }}">
@@ -567,7 +567,7 @@
     </section>
 
     <div class="container">
-        <h1 class="mt-4" style="text-align: center">Notice</h1>
+        <h1 class="mt-4" style="text-align: center">Our Teacher</h1>
 
         <div class="table-responsive">
             <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
@@ -575,21 +575,24 @@
                     <tr>
                         <th scope="col">Serial No.</th>
 
-                        <th scope="col">Title</th>
-                        <th scope="col">File Format</th>
-
+                        <th scope="col">Name</th>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Designation</th>
+                        <td scope="col">View Full Details</td>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $key => $notice)
+                    @foreach ($teacher_info as $key => $dt)
                         <tr>
                             <th scope="row">{{ $key + 1 }}</th>
-                            <td>{{ $notice->title }}</td>
-                            <td><a href="{{ url($notice->document_url) }}" target="_blank"
-                                    class="btn btn-primary"><img style="width:130px; height: 100px;"
-                                        src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
-                                        alt="" title="News image"></a></td>
-
+                            <td>{{ $dt->name }}</td>
+                            <td><img style="width:130px; height: 100px;"
+                                        src="https://drive.google.com/thumbnail?id={{$dt->photo_link}}"
+                                        alt="{{$dt->name}}" title="{{$dt->name}}"></td>
+                            <td>{{$dt->position}}</td>
+                            <td><a href="{{ url('/teacher/detail', $dt['id']) }}" target="_blank"
+                                class="btn btn-primary" type="button"
+                                data-id="{{ $dt->id }}" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-size: 16px; border-radius: 5px; border: 2px solid #002347; color:#002347">Click to see</a></td>
                         </tr>
                     @endforeach
                 </tbody>

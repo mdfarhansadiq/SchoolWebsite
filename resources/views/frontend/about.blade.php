@@ -36,7 +36,9 @@
             border-radius: 50%;
             cursor: pointer;
             z-index: 1000;
-            /* Make sure it's above other content */
+            /* Ensure it's above other content */
+            transition: background-color 0.3s ease;
+            /* Smooth transition on hover */
         }
 
         #scrollUp:hover {
@@ -48,18 +50,29 @@
             font-size: 20px;
         }
 
-        /* Fix for image overflow */
+        /* Image overflow fix for responsive behavior */
         .navbar-brand img {
             width: 100%;
             max-width: 163px;
             /* Set the exact width as needed */
             height: auto;
+            object-fit: contain;
+            /* Ensure the image scales well without distortion */
         }
 
-        /* Make sure the form container has proper width and prevents overflow */
+        /* Form container styling with padding for smaller screens */
         .signup-content {
             max-width: 600px;
             margin: 0 auto;
+            padding: 20px;
+            /* Add padding to prevent content from hitting the edges */
+        }
+
+        /* Responsive form adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .signup-content {
+                padding: 15px;
+            }
         }
     </style>
 
@@ -166,46 +179,57 @@
 <body>
     <header class="header_area white-header">
         <div class="main_menu">
-            <div class="search_input" id="search_input_box">
+            <!-- Search Bar -->
+            {{-- <div class="search_input" id="search_input_box">
                 <div class="container">
-                    <form class="d-flex justify-content-between" method action>
+                    <form class="d-flex justify-content-between" method="post" action="#">
                         <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
                         <button type="submit" class="btn"></button>
                         <span class="ti-close" id="close_search" title="Close Search"></span>
                     </form>
                 </div>
-            </div>
+            </div> --}}
+
+            <!-- Navbar and Contact -->
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <div class="col-md-0 col-sm-0">
-                        <div class="header-contact" style="margin-right: 30px; !important;">
-                            <div id="info-details" class="widget-text">
-                                <i class="glyph-icon flaticon-email"></i>
-                                <div class="info-text" style="color: ;">
-                                    <a href="mailto:notredamecollege@ndc.edu.bd">
-                                        <span style="color: #ffffff">Mail Us: </span>
-                                        <span style="color: #ffffff;">ourschool@example.edu</span>
-                                    </a>
-                                </div>
+
+                    <!-- Navbar Brand (Logo centered or left-aligned) -->
+                    <a class="navbar-brand logo_h ml-auto mr-auto" href="{{ url('/') }}">
+                        <img src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
+                            alt="School Logo" style="max-height: 60px;" />
+                    </a>
+
+                    <!-- Contact Info (aligned to the left) -->
+                    <div class="header-contact d-flex align-items-center">
+                        <div id="info-details" class="widget-text mr-4">
+                            <i class="glyph-icon flaticon-email"></i>
+                            <div class="info-text">
+                                <a href="mailto:notredamecollege@ndc.edu.bd">
+                                    <span style="color: #ffffff;">Mail Us: </span>
+                                    <span style="color: #ffffff;">ourschool@example.edu</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    {{-- <a class="" href="index-2.html">
-                        <img class="logo-2" src="{{ asset('frontend/asset/img/logo2.png') }}" alt />
-                    </a> --}}
+
+
+
+                    <!-- Navbar Toggle (Mobile) -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
 
+                    <!-- Navbar Links (aligned to the right) -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto">
+                        <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Live Class</a>
                             </li>
@@ -213,7 +237,7 @@
                                 <a class="nav-link" href="contact.html">Class Record</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Our Teacher</a>
+                                <a class="nav-link" href="{{ url('/teacher') }}">Our Teacher</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ url('/about') }}">About</a>
@@ -221,72 +245,46 @@
                             <li class="nav-item {{ request()->is('/contact') ? 'active' : '' }}">
                                 <a class="nav-link" href="contact.html">Contact</a>
                             </li>
+                            <!-- Logout Button Fix -->
                             {{-- <li class="nav-item">
-                                <a href="#" class="nav-link search" id="search">
-                                    <i class="ti-search"></i>
-                                </a>
+                                @if ($admin_logged_in == null)
+                                    <a class="nav-link d-inline" href="{{ route('admin.login') }}">Login/Signup</a>
+                                @else
+                                    <form method="POST" action="{{ route('admin.logout') }}" class="d-inline">
+                                        @csrf
+                                        <button type="submit" class="btn nav-link"
+                                            style="padding: 0; color: #292ccc; text-decoration: none;">
+                                            Logout
+                                        </button>
+                                    </form>
+                                @endif
                             </li> --}}
-                            <li class="nav-item">
-                                <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
-                                        src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
-                                        alt /></a>
-                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <!--start code for scrolling -->
-            <div class="col-md-12 col-7">
-                <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseleave="this.start();">
 
+            <!-- Scrolling Notice -->
+            <div class="col-md-12 col-12 mt-2">
+                <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseleave="this.start();">
                     <table class="border-0">
                         <tbody>
                             <tr>
-
-                                <!-- ### For Notice - Start ### -->
-
-                                <td class="border-0">
-
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/984/b0e/66d984b0eb05f009607891.pdf"
-                                        target="_blank" style="color: #ffffff"> জরুরি বিজ্ঞপ্তি </a> &nbsp; &nbsp;
-                                    &nbsp;
-
-                                </td>
-
-
-                                <td class="border-0">
-
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/97e/e50/66d97ee506a3b058866013.pdf"
-                                        target="_blank" style="color: #ffffff"> এইচএসসি ২য় বর্ষ ২০২৪ ছাত্রদের ব্যাবহারিক
-                                        ক্লাসের রুটিন </a>
-                                    &nbsp; &nbsp; &nbsp;
-
-                                </td>
-
-
-                                <td class="border-0">
-
-                                    <a href="https://ndc.edu.bd/storage/app/uploads/public/66d/57d/37c/66d57d37cfbbd674181677.pdf"
-                                        target="_blank" style="color: #ffffff"> এইচএসসি প্রথম বর্ষ-২০২৪ শিক্ষার্থীদের
-                                        স্থায়ী রোল নম্বর প্রকাশ
-                                    </a> &nbsp; &nbsp; &nbsp;
-
-                                </td>
-
-
-
-
-                                <!-- ### Notice End ### -->
-
+                                <!-- Notice Loop -->
+                                @foreach ($noticeDocuments as $dt)
+                                    <td class="border-0">
+                                        <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
+                                        &nbsp; &nbsp; &nbsp;
+                                    </td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>
-
                 </marquee>
             </div>
-            <!--end code for scrolling-->
         </div>
     </header>
+
 
 
     <section class="banner_area">

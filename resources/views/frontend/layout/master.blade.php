@@ -26,14 +26,31 @@
             max-width: 163px;
             /* Set the exact width as needed */
             height: auto;
+            display: block;
+            /* Ensures the image doesn't have extra spaces or cause misalignment */
         }
 
-        /* Make sure the form container has proper width and prevents overflow */
+        /* Aligns the mail icon and text properly */
+        .header-contact {
+            display: flex;
+            align-items: center;
+            /* Vertically aligns the icon and text */
+            margin-right: 30px;
+            /* Adds space between the contact info and the next element */
+        }
+
+        .header-contact i {
+            margin-right: 8px;
+            /* Adjusts space between the icon and the text */
+        }
+
+        /* Ensure form container has proper width and prevents overflow */
         .signup-content {
             max-width: 600px;
             margin: 0 auto;
         }
 
+        /* Scroll Up Button */
         #scrollUp {
             position: fixed;
             bottom: 20px;
@@ -49,7 +66,7 @@
             border-radius: 50%;
             cursor: pointer;
             z-index: 1000;
-            /* Make sure it's above other content */
+            /* Ensures it's above other content */
         }
 
         #scrollUp:hover {
@@ -60,6 +77,41 @@
         .fa-angle-up {
             font-size: 20px;
         }
+
+        /* Fix logout button alignment */
+        .navbar .btn-link {
+            padding: 0;
+            /* Removes default padding */
+            color: #333;
+            /* Matches other nav-item colors */
+            text-decoration: none;
+            /* Removes underline for button links */
+        }
+
+        /* Additional adjustments for navbar items */
+        .navbar .nav-link {
+            padding: 10px 15px;
+            /* Ensures consistent spacing between nav items */
+            color: #333;
+            /* Adjust the text color */
+        }
+
+        /* Remove default padding from form buttons in the navbar */
+        .navbar form button {
+            padding: 0;
+            margin-left: 10px;
+            /* Adds space between the button and other elements */
+        }
+
+
+        .custom-container {
+            max-width: 1400px;
+            /* Set the desired maximum width */
+
+            margin: 0 auto;
+            /* Center the container */
+        }
+
     </style>
     @stack('css')
     <script nonce="6685f9e1-74e5-4a8a-9212-9993819d0a37">
@@ -186,6 +238,7 @@
     <script src="{{ asset('frontend/asset/js/theme.js') }}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 

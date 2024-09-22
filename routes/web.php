@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\aboutPage\AboutPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminSignupLogin\AdminSignupLoginController;
 use App\Http\Controllers\adminDashboard\AdminDashboardController;
@@ -18,14 +19,14 @@ use PHPUnit\Framework\TestStatus\Notice;
 Route::get('/', [HomePageController::class, 'homePageView'])->name('home');
 
 
-Route::get('/about', function () {
-    return view('frontend.about');
-});
+
+Route::get('/about', [AboutPageController::class, 'aboutPageView'])->name('about');
+
 
 
 Route::get('/notice', [NoticeDocumentController::class, 'noticeDocumentFrontendView']);
-
-
+Route::get('/teacher', [TeacherInfoController::class, 'allTeacherInfoToFrontEnd']);
+Route::get('/teacher/detail/{id}', [TeacherInfoController::class, 'specificTeacherDetail']);
 
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');

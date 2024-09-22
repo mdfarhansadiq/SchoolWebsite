@@ -13,8 +13,10 @@ class NoticeDocumentController extends Controller
     public function noticeDocumentFrontendView()
     {
         $data = NoticeDocument::all();
+        $admin_logged_in = null;
+        $admin_logged_in = Session::get('admin_login_role');
         $noticeDocuments = NoticeDocument::orderBy('created_at', 'desc')->take(3)->get();
-        return view('frontend.notice', compact('data', 'noticeDocuments'));
+        return view('frontend.notice', compact('data', 'noticeDocuments', 'admin_logged_in'));
     }
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\TeacherInfo;
 use App\Models\TeacherLoginSignup;
+use App\Models\NoticeDocument;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
@@ -312,4 +313,25 @@ class TeacherInfoController extends Controller
         Session::flash('success', 'Selected teachers have been successfully updated.');
         return redirect()->back();
     }
+
+
+    public function allTeacherInfoToFrontEnd()
+    {
+        $teacher_info = TeacherInfo::where('active_status', 1)->get();
+        $noticeDocuments = NoticeDocument::all();
+        $admin_logged_in = null;
+        $admin_logged_in = Session::get('admin_login_role');
+        return view('frontend.teacher', compact('teacher_info', 'noticeDocuments', 'admin_logged_in'));
+    }
+
+    public function specificTeacherDetail($id)
+    {
+        $teacher_info = TeacherInfo::find($id);
+        $noticeDocuments = NoticeDocument::all();
+        $admin_logged_in = null;
+        $admin_logged_in = Session::get('admin_login_role');
+
+        return view('frontend.teacher-detail', compact('teacher_info', 'noticeDocuments', 'admin_logged_in'));
+    }
+    
 }
