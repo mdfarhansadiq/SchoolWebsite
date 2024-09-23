@@ -404,8 +404,8 @@
                             <i class="glyph-icon flaticon-email mr-2"></i>
                             <div class="info-text">
                                 <a class="navbar-brand logo_h" href="{{ url('/') }}"><img
-                                    src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
-                                    alt /></a>
+                                        src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
+                                        alt /></a>
                                 <a href="mailto:ourschool@example.edu" style="color: #002347; text-decoration: none;">
                                     <span>Mail Us: </span>
                                     <span>ourschool@example.edu</span>
@@ -516,88 +516,41 @@
         </div>
     </header>
 
+
     <section class="section_gap_top">
         <div class="container">
-            {{-- <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="main_title">
-                        <h2 class="mb-3">উল্লেখযোগ্য বৈশিষ্ট্য</h2>
-                    </div>
-                </div>
-            </div> --}}
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="single_feature">
-                        <div class="icon"><span class="flaticon-student"></span></div>
-                        <div class="desc">
-                            <h4 class="mt-3 mb-2">বৃত্তি সুবিধা</h4>
-                            <p>
-                                One make creepeth, man bearing theira firmament won't great
-                                heaven
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="col-lg-4 col-md-6">
-                    <div class="single_feature">
-                        <div class="icon"><span class="flaticon-book"></span></div>
-                        <div class="desc">
-                            <h4 class="mt-3 mb-2">Sell Online Course</h4>
-                            <p>
-                                One make creepeth, man bearing theira firmament won't great
-                                heaven
-                            </p>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="col-lg-6 col-md-6">
-                    <div class="single_feature">
-                        <div class="icon"><span class="flaticon-earth"></span></div>
-                        <div class="desc">
-                            <h4 class="mt-3 mb-2">সার্টিফিকেশন</h4>
-                            <p>
-                                One make creepeth, man bearing theira firmament won't great
-                                heaven
-                            </p>
-                        </div>
-                    </div>
-                </div> --}}
+            <h1 class="mt-4" style="text-align: center; padding-top:150px;">Notice</h1>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Serial No.</th>
+
+                            <th scope="col">Title</th>
+                            <th scope="col">File Format</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $key => $notice)
+                            <tr>
+                                <th scope="row">{{ $key + 1 }}</th>
+                                <td>{{ $notice->title }}</td>
+                                <td><a href="{{ url($notice->document_url) }}" target="_blank"
+                                        class="btn btn-primary"><img style="width:130px; height: 100px;"
+                                            src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
+                                            alt="" title="News image"></a></td>
+
+                            </tr>
+                        @endforeach
+                    </tbody>
+
+
+                </table>
             </div>
         </div>
     </section>
-
-    <div class="container">
-        <h1 class="mt-4" style="text-align: center">Notice</h1>
-
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Serial No.</th>
-
-                        <th scope="col">Title</th>
-                        <th scope="col">File Format</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($data as $key => $notice)
-                        <tr>
-                            <th scope="row">{{ $key + 1 }}</th>
-                            <td>{{ $notice->title }}</td>
-                            <td><a href="{{ url($notice->document_url) }}" target="_blank"
-                                    class="btn btn-primary"><img style="width:130px; height: 100px;"
-                                        src="https://ndc.edu.bd/themes/notredame/assets/images/pdf-icon.png"
-                                        alt="" title="News image"></a></td>
-
-                        </tr>
-                    @endforeach
-                </tbody>
-
-
-            </table>
-        </div>
-    </div>
 
 
 

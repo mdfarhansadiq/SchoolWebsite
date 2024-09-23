@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
     <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
-    <title>Person Details</title>
+    <title>Gonga Pur Govt. Primary School</title>
 
 
     <style>
@@ -272,48 +272,35 @@
 
         .fa-angle-up {
             font-size: 20px;
-        }
 
-        /* Styling the person details container */
-        .person-details-container {
-            margin-top: 50px;
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .person-img {
-            max-width: 200px;
-            border-radius: 50%;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .person-info {
-            padding-left: 20px;
         }
 
         .person-info h2 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
+            transition: color 0.3s ease;
         }
 
-        .person-info p {
-            font-size: 18px;
-            color: #666;
-        }
-
-        .person-contact a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 16px;
-            display: inline-block;
-            margin-top: 10px;
+        .person-info h2:hover {
+            color: #2980b9;
         }
 
         .person-contact a:hover {
             text-decoration: underline;
+        }
+
+        img {
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .person-contact i {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .person-contact a:hover i {
+            transform: rotate(360deg);
         }
     </style>
 </head>
@@ -450,76 +437,38 @@
         </div>
     </header>
 
-    <section class="section_gap_top">
-        <div class="container">
-            {{-- <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="main_title">
-                        <h2 class="mb-3">উল্লেখযোগ্য বৈশিষ্ট্য</h2>
+    <section class="section_gap_top" style="background: linear-gradient(135deg, #f0f4f8, #d9e4f1); padding: 200px 0;">
+        <div class="container" style="padding: 60px; background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div class="row person-details-container align-items-center">
+                <div class="col-md-4 text-center">
+                    <!-- Person Image -->
+                    <img style="width: 230px; height: auto; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+                        src="https://drive.google.com/thumbnail?id={{ $teacher_info->photo_link }}"
+                        alt="{{ $teacher_info->name }}" title="{{ $teacher_info->name }}">
+                </div>
+                <div class="col-md-8 person-info">
+                    <!-- Person Name -->
+                    <h2 style="font-weight: bold; font-size: 2.5rem; color: #2c3e50; margin-bottom: 20px;">
+                        {{ $teacher_info->name }}</h2>
+                    <h5 style="color: #002347">Designation: {{ $teacher_info->position }}</h5>
+                    <!-- Short Bio -->
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #7f8c8d; margin-bottom: 30px;">
+                        {!! $teacher_info->educational_qualification !!}</p>
+                    <!-- Contact Info -->
+                    <div class="person-contact" style="font-size: 1.2rem; color: #34495e;">
+                        <a href="mailto:johndoe@example.com"
+                            style="color: #2980b9; text-decoration: none; margin-bottom: 10px; display: inline-block;">
+                            <i class="fa fa-envelope" style="margin-right: 10px; color: #e74c3c;"></i>
+                            johndoe@example.com
+                        </a><br>
+                        <a href="tel:+1234567890" style="color: #2980b9; text-decoration: none;">
+                            <i class="fa fa-phone" style="margin-right: 10px; color: #27ae60;"></i> +123 456 7890
+                        </a>
                     </div>
                 </div>
-            </div> --}}
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="single_feature">
-                        <div class="icon"><span class="flaticon-student"></span></div>
-                        <div class="desc">
-                            <h4 class="mt-3 mb-2" style="justify-content: center;">বৃত্তি সুবিধা</h4>
-                            <p style="">
-                                One make creepeth, man bearing theira firmament won't great
-                                heaven
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="col-lg-4 col-md-6">
-                    <div class="single_feature">
-                        <div class="icon"><span class="flaticon-book"></span></div>
-                        <div class="desc">
-                            <h4 class="mt-3 mb-2">Sell Online Course</h4>
-                            <p>
-                                One make creepeth, man bearing theira firmament won't great
-                                heaven
-                            </p>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="col-lg-6 col-md-6">
-                    <div class="single_feature">
-                        <div class="icon"><span class="flaticon-earth"></span></div>
-                        <div class="desc">
-                            <h4 class="mt-3 mb-2">সার্টিফিকেশন</h4>
-                            <p>
-                                One make creepeth, man bearing theira firmament won't great
-                                heaven
-                            </p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
-    <div class="container">
-        <div class="row person-details-container">
-            <div class="col-md-4 text-center">
-                <!-- Person Image -->
-                <img style="width:230px; height: auto"
-                    src="https://drive.google.com/thumbnail?id={{ $teacher_info->photo_link }}"
-                    alt="{{ $teacher_info->name }}" title="{{ $teacher_info->name }}">
-            </div>
-            <div class="col-md-8 person-info">
-                <!-- Person Name -->
-                <h2>{{ $teacher_info->name }}</h2>
-                <!-- Short Bio -->
-                <p>{!! $teacher_info->educational_qualification !!}</p>
-                <!-- Contact Info -->
-                <div class="person-contact">
-                    <a href="mailto:johndoe@example.com"><i class="fa fa-envelope"></i> johndoe@example.com</a><br>
-                    <a href="tel:+1234567890"><i class="fa fa-phone"></i> +123 456 7890</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Scroll to Top Button -->
     <div id="scrollUp" style="display: none;">
