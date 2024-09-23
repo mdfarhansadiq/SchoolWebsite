@@ -14,6 +14,7 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('backend/adminsignuplogin/asset/css/style.css') }}">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <style>
         .navbar {
             display: flex;
@@ -49,7 +50,8 @@
         /* Fix for image overflow */
         .navbar-brand img {
             width: 100%;
-            max-width: 163px; /* Set the exact width as needed */
+            max-width: 163px;
+            /* Set the exact width as needed */
             height: auto;
         }
 
@@ -57,6 +59,11 @@
         .signup-content {
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .g-recaptcha {
+            margin: 0 auto;
+            display: inline-block;
         }
     </style>
 
@@ -73,7 +80,8 @@
                 <div class="signup-content">
                     <nav class="navbar">
                         <a class="navbar-brand logo_h" href="{{ url('/') }}">
-                            <img src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}" height="10px" width="163px" alt />
+                            <img src="{{ asset('backend/adminsignuplogin/asset/images/school-logo.jpg') }}"
+                                height="10px" width="163px" alt />
                         </a>
                     </nav>
                     <form method="POST" id="login-form" class="signup-form"
@@ -118,13 +126,26 @@
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         </div> --}}
+                        <!-- Google reCAPTCHA widget -->
+                        <div class="form-group">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+
+                                @error('g-recaptcha-response')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Login" />
                         </div>
                     </form>
 
                     <p class="loginhere">
-                        Create an account ? <a href="{{url('/ourschool-admin/signup/view')}}" class="loginhere-link">Signup</a>
+                        Create an account ? <a href="{{ url('/ourschool-admin/signup/view') }}"
+                            class="loginhere-link">Signup</a>
                     </p>
                 </div>
             </div>

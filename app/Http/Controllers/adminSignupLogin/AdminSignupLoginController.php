@@ -26,6 +26,7 @@ class AdminSignupLoginController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:admin_signup_login_models|max:255',
             'password' => 'required|min:9',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         try {
@@ -65,6 +66,7 @@ class AdminSignupLoginController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha',
         ]);
 
         try {
