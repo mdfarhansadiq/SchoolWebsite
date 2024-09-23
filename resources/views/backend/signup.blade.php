@@ -120,7 +120,7 @@
                         <div class="form-group">
                             <div class="col-md-6 offset-md-4">
                                 <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
-
+                                <br>
                                 @error('g-recaptcha-response')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

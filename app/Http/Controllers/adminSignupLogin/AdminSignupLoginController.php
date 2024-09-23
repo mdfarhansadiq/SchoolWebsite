@@ -27,7 +27,14 @@ class AdminSignupLoginController extends Controller
             'email' => 'required|email|unique:admin_signup_login_models|max:255',
             'password' => 'required|min:9',
             'g-recaptcha-response' => 'required|recaptcha',
-        ]);
+        ], [
+            'name.required' => 'Please enter your name.',
+            'email.required' => 'Please provide a valid email address.',
+            'password.required' => 'Please enter a password.',
+            'password.min' => 'Password must be at least 9 characters long.',
+            'g-recaptcha-response.required' => 'Please complete the CAPTCHA.',
+        ]
+    );
 
         try {
             $data = new AdminSignupLoginModel();
@@ -67,7 +74,12 @@ class AdminSignupLoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'g-recaptcha-response' => 'required|recaptcha',
-        ]);
+        ], [
+            'email.required' => 'Please enter your email address.',
+            'password.required' => 'Please enter the password.',
+            'g-recaptcha-response.required' => 'Please complete the CAPTCHA.',
+        ]
+    );
 
         try {
             $data = AdminSignupLoginModel::where('email', $request->email)->first();
