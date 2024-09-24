@@ -8,6 +8,7 @@ use App\Http\Controllers\adminRolePermission\AdminRolePermissionController;
 use App\Http\Controllers\admissionInfo\AdmissionInfoController;
 use App\Http\Controllers\classNumber\ClassNumberController;
 use App\Http\Controllers\classSection\ClassSectionController;
+use App\Http\Controllers\contactPage\ContactPageController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
 use App\Http\Controllers\homePage\HomePageController;
 use App\Http\Controllers\lectureAndNoteFile\LectureNoteFileController;
@@ -19,9 +20,10 @@ use PHPUnit\Framework\TestStatus\Notice;
 Route::get('/', [HomePageController::class, 'homePageView'])->name('home');
 
 
-
 Route::get('/about', [AboutPageController::class, 'aboutPageView'])->name('about');
 
+Route::get('/contact', [ContactPageController::class, 'contactPageView'])->name('contact.view');
+Route::post('/contact/create', [ContactPageController::class, 'contactPageCreate'])->name('contact.create');
 
 
 Route::get('/notice', [NoticeDocumentController::class, 'noticeDocumentFrontendView']);

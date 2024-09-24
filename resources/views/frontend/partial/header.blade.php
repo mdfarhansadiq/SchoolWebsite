@@ -50,7 +50,7 @@
                             <a class="nav-link" href="{{ url('/about') }}">About</a>
                         </li>
                         <li class="nav-item {{ request()->is('/contact') ? 'active' : '' }}">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="{{url('/contact')}}">Contact</a>
                         </li>
 
                         <!-- Logout Button Fix -->
