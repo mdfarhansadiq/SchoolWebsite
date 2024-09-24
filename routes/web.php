@@ -238,4 +238,4 @@ Route::get('/ourschool-admin/admission-info/delete/{id}', [AdmissionInfoControll
 
 // Route::get('/testimonial/{slug}', 'Frontend\TestimonialController@show')->name('testimonial.show');
 
-// Route::get('/faq', 'Frontend\FaqController@index')->name('faq');
+// Route::get('/faq', 'Frontend\FaqController@index')->name('faq');     
