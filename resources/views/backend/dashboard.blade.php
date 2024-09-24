@@ -57,7 +57,7 @@
                         </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">{{$num_class}}</span>
+                        <span class="count">{{ $num_class }}</span>
                     </h4>
                     <p class="text-light">Number of Class Level</p>
 
@@ -88,7 +88,7 @@
                         </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">{{$num_section}}</span>
+                        <span class="count">{{ $num_section }}</span>
                     </h4>
                     <p class="text-light">Number Of Section</p>
 
@@ -118,7 +118,7 @@
                         </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">{{$num_teacher}}</span>
+                        <span class="count">{{ $num_teacher }}</span>
                     </h4>
                     <p class="text-light">Number Of Teacher</p>
 
@@ -148,7 +148,7 @@
                         </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">{{$num_notice}}</span>
+                        <span class="count">{{ $num_notice }}</span>
                     </h4>
                     <p class="text-light">Number Of Notice Document</p>
 
@@ -178,7 +178,7 @@
                         </div> --}}
                     </div>
                     <h4 class="mb-0">
-                        <span class="count">{{$num_video}}</span>
+                        <span class="count">{{ $num_video }}</span>
                     </h4>
                     <p class="text-light">Number Of Class Record Video</p>
 
@@ -189,6 +189,29 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-4">
+                <div class="card-body pb-0">
+                    <div class="dropdown float-right">
+
+                    </div>
+                    {{-- <h4 class="mb-0">
+                        <span class="count">{{$num_video}}</span>
+                    </h4> --}}
+                    <p class="text-light">Cache Setting</p>
+
+                    <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                        <form action="/clear-cache" method="get">
+                            <button type="submit" class="btn btn-danger">Clear Cache</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         <!--/.col-->
 
         {{-- <div class="col-lg-3 col-md-6">

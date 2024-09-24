@@ -15,6 +15,8 @@ use App\Http\Controllers\lectureAndNoteFile\LectureNoteFileController;
 use App\Http\Controllers\teacherInfo\TeacherInfoController;
 use App\Http\Controllers\teacherLoginSignup\TeacherLoginSignupController;
 use App\Http\Controllers\onlineClassVideo\OnlineClassVideoController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Session;
 use PHPUnit\Framework\TestStatus\Notice;
 
 Route::get('/', [HomePageController::class, 'homePageView'])->name('home');
@@ -104,6 +106,17 @@ Route::post('/ourschool-admin/admission-info/update/{id}', [AdmissionInfoControl
 Route::get('/ourschool-admin/admission-info/delete/{id}', [AdmissionInfoController::class, 'admissionInfoPageDelete'])->name('admin.admission-info.delete');
 
 
+Route::get('/clear-cache', function () {
+    $admin_login_role = Session::get('admin_login_role');
+    if ($admin_login_role == 1) {
+        Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        return back()->with('message', 'Cache Cleared Successfully!');
+    }
+    return redirect()->route('admin.login');
+});
 // Teacher Login and Dashboard
 // Route::get('/teacher/signup/view', [TeacherLoginSignupController::class, 'teacherSignupPageView'])->name('teacher.signup');
 // Route::post('/teacher/signup/create', [TeacherLoginSignupController::class, 'teacherSignupPageCreate'])->name('teacher.signup.create');
@@ -238,4 +251,4 @@ Route::get('/ourschool-admin/admission-info/delete/{id}', [AdmissionInfoControll
 
 // Route::get('/testimonial/{slug}', 'Frontend\TestimonialController@show')->name('testimonial.show');
 
-// Route::get('/faq', 'Frontend\FaqController@index')->name('faq');     
+// Route::get('/faq', 'Frontend\FaqController@index')->name('faq');
