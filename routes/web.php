@@ -107,14 +107,14 @@ Route::get('/ourschool-admin/admission-info/delete/{id}', [AdmissionInfoControll
 
 
 Route::get('/clear-cache', function () {
-    $admin_login_role = Session::get('admin_login_role');
-    if ($admin_login_role == 1) {
+    //$admin_login_role = Session::get('admin_login_role');
+    //if ($admin_login_role == 1) {
         Artisan::call('cache:clear');
         Artisan::call('route:clear');
         Artisan::call('config:clear');
         Artisan::call('view:clear');
         return back()->with('message', 'Cache Cleared Successfully!');
-    }
+    //}
     return redirect()->route('admin.login');
 });
 // Teacher Login and Dashboard
