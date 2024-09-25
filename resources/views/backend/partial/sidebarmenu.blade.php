@@ -43,6 +43,9 @@
                 <li class="nav-item {{ request()->is('ourschool-admin/class-section/view') ? 'active' : '' }}">
                     <a href="{{ url('ourschool-admin/class-section/view') }}"> <i class="menu-icon fa fa-file"></i>Class Section</a>
                 </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/online-class-link/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/online-class-link/view') }}"> <i class="menu-icon fa fa-link"></i>Online Class Link</a>
+                </li>
                 <li class="nav-item {{ request()->is('ourschool-admin/class-record/view') ? 'active' : '' }}">
                     <a href="{{ url('ourschool-admin/class-record/view') }}"> <i class="menu-icon fa fa-youtube-play"></i>Class Video Link</a>
                 </li>

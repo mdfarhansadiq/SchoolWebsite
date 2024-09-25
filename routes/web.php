@@ -12,6 +12,7 @@ use App\Http\Controllers\contactPage\ContactPageController;
 use App\Http\Controllers\noticeDocument\NoticeDocumentController;
 use App\Http\Controllers\homePage\HomePageController;
 use App\Http\Controllers\lectureAndNoteFile\LectureNoteFileController;
+use App\Http\Controllers\onlineClassLink\OnlineClassLinkController;
 use App\Http\Controllers\teacherInfo\TeacherInfoController;
 use App\Http\Controllers\teacherLoginSignup\TeacherLoginSignupController;
 use App\Http\Controllers\onlineClassVideo\OnlineClassVideoController;
@@ -73,6 +74,7 @@ Route::get('/ourschool-admin/teacher-login-signup-info/view', [TeacherLoginSignu
 Route::post('/ourschool-admin/teacher-login-signup-info/create', [TeacherLoginSignupController::class, 'teacherLoginSignupInfoPageCreate'])->name('admin.teacher-login-signup-info.create');
 
 
+
 Route::get('/ourschool-admin/class-number/view', [ClassNumberController::class, 'classNumberPageView'])->name('admin.class-number.view');
 Route::post('/ourschool-admin/class-number/create', [ClassNumberController::class, 'classNumberPageCreate'])->name('admin.class-number.create');
 Route::get('/ourschool-admin/class-number/edit/{id}', [ClassNumberController::class, 'classNumberPageEdit'])->name('admin.class-number.edit');
@@ -91,6 +93,15 @@ Route::post('/ourschool-admin/class-record/create', [OnlineClassVideoController:
 Route::get('/ourschool-admin/class-record/edit/{id}', [OnlineClassVideoController::class, 'classVideoPageEdit'])->name('admin.class-record.edit');
 Route::post('/ourschool-admin/class-record/update/{id}', [OnlineClassVideoController::class, 'classVideoPageUpdate'])->name('admin.class-record.update');
 Route::get('/ourschool-admin/class-record/delete/{id}', [OnlineClassVideoController::class, 'classVideoPageDelete'])->name('admin.class-record.delete');
+
+
+Route::get('/ourschool-admin/online-class-link/view', [OnlineClassLinkController::class, 'onlineClassLinkPageView'])->name('admin.online-class-link.view');
+Route::get('/ourschool-admin/online-class-link/select-data/{id}', [OnlineClassLinkController::class, 'classSectionSelectData'])->name('admin.online-class-link.select-data');
+Route::post('ourschool-admin/online-class-link/create', [OnlineClassLinkController::class, 'onlineClassLinkPageCreate'])->name('admin.online-class-link.create');
+Route::get('/ourschool-admin/online-class-link/edit/{id}', [OnlineClassLinkController::class, 'onlineClassLinkPageEdit'])->name('admin.online-class-link.edit');
+Route::post('/ourschool-admin/online-class-link/update/{id}', [OnlineClassLinkController::class, 'onlineClassLinkPageUpdate'])->name('admin.online-class-link.update');
+Route::get('/ourschool-admin/online-class-link/delete/{id}', [OnlineClassLinkController::class, 'onlineClassLinkPageDelete'])->name('admin.online-class-link.delete');
+
 
 Route::get('/ourschool-admin/lecture-note-file/view', [LectureNoteFileController::class, 'lectureNoteFilePageView'])->name('admin.lecture-note-file.view');
 Route::get('/ourschool-admin/lecture-note-file/select-data/{id}', [OnlineClassVideoController::class, 'classSectionSelectData'])->name('admin.class-record.select-data');
