@@ -6,18 +6,51 @@ use App\Http\Controllers\Controller;
 use App\Models\ClassNumber;
 use App\Models\ClassSection;
 use App\Models\OnlineClassLink;
+use App\Models\NoticeDocument;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class OnlineClassLinkController extends Controller
 {
     //
+    public function onlineClassLinkFrontendView()
+    {
+        $data = OnlineClassLink::all();
+        $classnumber = ClassNumber::all();
+        $noticeDocuments = NoticeDocument::all();
+        return view('frontend.online-class-link', compact('data', 'classnumber', 'noticeDocuments'));
+    }
+
+
+    public function onlineClassLinkFrontendFind(Request $request)
+    {
+        $request->validate([
+            'onlineClassDate' => 'required',
+            'g-recaptcha-response' => 'required|recaptcha',
+        ],
+        [
+            'onlineClassDate.required' => 'Please select the online class date.',
+            'g-recaptcha-response.required' => 'Please complete the CAPTCHA.',
+        ]);
+
+
+        $class_date = $request->onlineClassDate;
+        $noticeDocuments = NoticeDocument::all();
+        $data = OnlineClassLink::where('class_date', $class_date)->get();
+
+        return view('frontend.online-class-link-result', compact('data', 'noticeDocuments'));
+    }
+
+
+
+
     public function onlineClassLinkPageView()
     {
         $admin_role = Session::get('admin_login_role');
         if ($admin_role == 1) {
             $classnumber = ClassNumber::all();
-            return view('backend.online-class-link', compact('classnumber'));
+            $data = OnlineClassLink::all();
+            return view('backend.online-class-link', compact('classnumber', 'data'));
         }
 
         return redirect()->route('admin.login');
@@ -31,7 +64,6 @@ class OnlineClassLinkController extends Controller
         return response()->json($section);
     }
 
-
     public function onlineClassLinkPageCreate(Request $request)
     {
         $admin_role = Session::get('admin_login_role');
@@ -41,6 +73,7 @@ class OnlineClassLinkController extends Controller
                 'classSection' => 'required',
                 'classSubject' => 'required',
                 'onlineClassLink' => 'required',
+                'onlineClassLinkCode' => 'required',
                 'onlineClassDate' => 'required',
                 'onlineClassTime' => 'required',
             ]);
@@ -50,6 +83,7 @@ class OnlineClassLinkController extends Controller
             $data->class_section_id = $request->classSection;
             $data->subject = $request->classSubject;
             $data->link = $request->onlineClassLink;
+            $data->link_code = ($request->onlineClassLinkCode) ? $request->onlineClassLinkCode : 'NA';
             $data->class_date = $request->onlineClassDate;
             $data->class_time = $request->onlineClassTime;
 
@@ -83,6 +117,7 @@ class OnlineClassLinkController extends Controller
                 'classSection' => 'required',
                 'classSubject' => 'required',
                 'onlineClassLink' => 'required',
+                'onlineClassLinkCode' => 'required',
                 'onlineClassDate' => 'required',
                 'onlineClassTime' => 'required',
             ]);
@@ -92,6 +127,7 @@ class OnlineClassLinkController extends Controller
             $data->class_section_id = $request->classSection;
             $data->subject = $request->classSubject;
             $data->link = $request->onlineClassLink;
+            $data->link_code = $request->onlineClassLinkCode;
             $data->class_date = $request->onlineClassDate;
             $data->class_time = $request->onlineClassTime;
 
@@ -103,7 +139,7 @@ class OnlineClassLinkController extends Controller
         return redirect()->route('admin.login');
     }
 
-    
+
     public function onlineClassLinkPageDelete($id)
     {
         $admin_role = Session::get('admin_login_role');

@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="classsubject" class="col-md-3 col-form-label">Subject</label>
+                        <label for="classsubject" class="col-md-3 col-form-label">Class Subject</label>
                         <div class="col-md-9">
                             <input type="text" id="classsubject" name="classSubject" placeholder="Enter the class subject"
                                 class="form-control">
@@ -88,6 +88,15 @@
                             <input type="text" id="onlineClassLink" name="onlineClassLink"
                                 placeholder="Enter the online class link" class="form-control">
                             <small class="form-text text-muted">Please enter the online class link.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="onlineClassLinkCode" class="col-md-3 col-form-label">Online Class Link Code</label>
+                        <div class="col-md-9">
+                            <input type="text" id="onlineClassLinkCode" name="onlineClassLinkCode"
+                                placeholder="Enter the online class link code" class="form-control">
+                            <small class="form-text text-muted">Please enter the online class link code.</small>
                         </div>
                     </div>
 
@@ -120,6 +129,44 @@
         </div>
 
 
+
+        <div class="card">
+            <div class="card-header">
+                <strong>Online Class Link - Data Table</strong>
+            </div>
+
+            <div class="card-body">
+                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Serial No.</th>
+                            <th scope="col">Class Level</th>
+                            <th scope="col">Class Section</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Online Class Link</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $key => $classvid)
+                            <tr>
+                                <th scope="row">{{ $key + 1 }}</th>
+                                <td>Class - {{$classvid->classNumber->class_number}}</td>
+                                <td>Section - {{$classvid->classSection->class_section}}</td>
+                                <td>{{ $classvid->subject }}</td>
+                                <td>{{$classvid->link}}</td>
+                                <td><a href="{{ url('/ourschool-admin/online-class-link/edit', $classvid['id']) }}"
+                                        class="edit btn btn-primary" type="button" data-id="{{ $classvid->id }}">Edit</a>
+                                    <a href="{{ url('/ourschool-admin/online-class-link/delete', $classvid['id']) }}"
+                                        class="delete btn btn-danger" type="button" data-id="{{ $classvid->id }}"
+                                        onclick="return confirm('Are you sure to delete this online class link?')">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </div>
 

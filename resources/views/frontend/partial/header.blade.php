@@ -37,7 +37,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Live Class</a>
+                            <a class="nav-link" href="{{url('/online-class-link')}}">Online Class</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Class Record</a>

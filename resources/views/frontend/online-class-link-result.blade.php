@@ -442,20 +442,20 @@
                                 </ul>
                             </li> --}}
 
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="{{url('/online-class-link')}}">Online Class</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Class Record</a>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/teacher') }}">Our Teacher</a>
                             </li>
-                            <li class="nav-item {{ request()->is('/about') ? 'active' : '' }}">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/about') }}">About</a>
                             </li>
-                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{url('contact')}}">Contact</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/contact')}}">Contact</a>
                             </li>
                             {{-- <li class="nav-item">
                                 <a href="#" class="nav-link search" id="search">
@@ -498,9 +498,6 @@
 
                                         <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
                                         &nbsp; &nbsp; &nbsp;
-
-
-
                                     </td>
                                 @endforeach
 
@@ -520,33 +517,27 @@
 
     <section class="section_gap_top">
         <div class="container">
-            <h1 class="mt-4" style="text-align: center; padding-top:150px">Our Teacher</h1>
+            <h1 class="mt-4" style="text-align: center; padding-top:150px">Online Class Link</h1>
 
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">Serial No.</th>
-
-                            <th scope="col">Name</th>
-                            <th scope="col">Photo</th>
-                            <th scope="col">Designation</th>
-                            <td scope="col">View Full Details</td>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Class Level & Class Section</th>
+                            <th scope="col">Class Link</th>
+                            <th scope="col">Class Link Code</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($teacher_info as $key => $dt)
+                        @foreach ($data as $key => $dt)
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
-                                <td>{{ $dt->name }}</td>
-                                <td><img style="width:130px; height: 100px;"
-                                        src="https://drive.google.com/thumbnail?id={{ $dt->photo_link }}"
-                                        alt="{{ $dt->name }}" title="{{ $dt->name }}"></td>
-                                <td>{{ $dt->position }}</td>
-                                <td><a href="{{ url('/teacher/detail/serial-number=' . $dt['id']) }}" target="_blank"
-                                        class="btn btn-primary" type="button" data-id="{{ $dt->id }}"
-                                        style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-size: 16px; border-radius: 5px; border: 2px solid #002347; color:#002347">Click
-                                        to see</a></td>
+                                <td>{{ $dt->subject }}</td>
+                                <td>{{$dt->classNumber->class_number}} - {{$dt->classSection->class_section}}</td>
+                                <td><a href="{{url($dt->link)}}" target="_blank">Class Link</a></td>
+                                <td>{{$dt->link_code}}</td>
                             </tr>
                         @endforeach
                     </tbody>

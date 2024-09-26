@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class OnlineClassLink extends Model
 {
     use HasFactory;
+
+
+    public function classNumber()
+    {
+        return $this->belongsTo(ClassNumber::class);
+    }
+
+    public function classSection()
+    {
+        return $this->belongsTo(ClassSection::class);
+    }
 }

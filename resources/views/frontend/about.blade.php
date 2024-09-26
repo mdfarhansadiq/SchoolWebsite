@@ -231,7 +231,7 @@
                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Live Class</a>
+                                <a class="nav-link" href="{{url('/online-class-link')}}">Online Class</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Class Record</a>
@@ -242,8 +242,8 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ url('/about') }}">About</a>
                             </li>
-                            <li class="nav-item {{ request()->is('/contact') ? 'active' : '' }}">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/contact')}}">Contact</a>
                             </li>
                             <!-- Logout Button Fix -->
                             {{-- <li class="nav-item">

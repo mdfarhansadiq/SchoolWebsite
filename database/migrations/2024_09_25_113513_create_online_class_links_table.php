@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('class_section_id')->references('id')->on('class_sections')->onDelete('cascade');
             $table->string('subject');
             $table->text('link');
+            $table->string('link_code');
             $table->date('class_date');
             $table->time('class_time');
 

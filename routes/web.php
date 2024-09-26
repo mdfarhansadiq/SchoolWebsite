@@ -33,6 +33,10 @@ Route::get('/notice', [NoticeDocumentController::class, 'noticeDocumentFrontendV
 Route::get('/teacher', [TeacherInfoController::class, 'allTeacherInfoToFrontEnd']);
 Route::get('/teacher/detail/serial-number={id}', [TeacherInfoController::class, 'specificTeacherDetail']);
 
+
+Route::get('/online-class-link', [OnlineClassLinkController::class, 'onlineClassLinkFrontendView'])->name('online-class-link.view');
+Route::get('/online-class-link/result', [OnlineClassLinkController::class, 'onlineClassLinkFrontendFind'])->name('online-class-link.result');
+
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
 Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');

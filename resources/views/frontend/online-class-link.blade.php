@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from preview.colorlib.com/theme/edustage/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Sep 2024 05:52:41 GMT -->
-
 <head>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('frontend/asset/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
     <link rel="icon" href="{{ asset('frontend/asset/img/favicon.png') }}" type="image/png" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <title>Gonga Pur Govt. Primary School</title>
 
-    <link rel="stylesheet" href="{{ asset('frontend/asset/css/bootstrap.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/css/flaticon.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/css/themify-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/vendors/owl-carousel/owl.carousel.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/asset/vendors/nice-select/css/nice-select.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <style>
         #rs-about {
             padding: 60px 0;
@@ -212,7 +202,26 @@
             color: white;
         }
 
-        /* Responsive for small devices */
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        /* Responsive for small devices
         @media (max-width: 768px) {
             .dataTables_wrapper .dataTables_filter input {
                 width: 100%;
@@ -224,24 +233,7 @@
                 width: 100%;
                 margin-bottom: 10px;
             }
-        }
-
-        .dataTables_paginate .paginate_button {
-            padding: 0.5em 1em;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            margin: 0 3px;
-        }
-
-        .dataTables_paginate .paginate_button.disabled {
-            background-color: #ccc;
-        }
-
-        .dataTables_paginate .paginate_button:hover {
-            background-color: #0056b3;
-        }
+        } */
 
         /* Fix for image overflow */
         .navbar-brand img {
@@ -283,109 +275,41 @@
 
         .fa-angle-up {
             font-size: 20px;
+
+        }
+
+        .person-info h2 {
+            transition: color 0.3s ease;
+        }
+
+        .person-info h2:hover {
+            color: #2980b9;
+        }
+
+        .person-contact a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .person-contact i {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .person-contact a:hover i {
+            transform: rotate(360deg);
         }
     </style>
-    <script nonce="6685f9e1-74e5-4a8a-9212-9993819d0a37">
-        try {
-            (function(w, d) {
-                ! function(j, k, l, m) {
-                    if (j.zaraz) console.error("zaraz is loaded twice");
-                    else {
-                        j[l] = j[l] || {};
-                        j[l].executed = [];
-                        j.zaraz = {
-                            deferred: [],
-                            listeners: []
-                        };
-                        j.zaraz._v = "5796";
-                        j.zaraz.q = [];
-                        j.zaraz._f = function(n) {
-                            return async function() {
-                                var o = Array.prototype.slice.call(arguments);
-                                j.zaraz.q.push({
-                                    m: n,
-                                    a: o
-                                })
-                            }
-                        };
-                        for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
-                        j.zaraz.init = () => {
-                            var q = k.getElementsByTagName(m)[0],
-                                r = k.createElement(m),
-                                s = k.getElementsByTagName("title")[0];
-                            s && (j[l].t = k.getElementsByTagName("title")[0].text);
-                            j[l].x = Math.random();
-                            j[l].w = j.screen.width;
-                            j[l].h = j.screen.height;
-                            j[l].j = j.innerHeight;
-                            j[l].e = j.innerWidth;
-                            j[l].l = j.location.href;
-                            j[l].r = k.referrer;
-                            j[l].k = j.screen.colorDepth;
-                            j[l].n = k.characterSet;
-                            j[l].o = (new Date).getTimezoneOffset();
-                            if (j.dataLayer)
-                                for (const w of Object.entries(Object.entries(dataLayer).reduce(((x, y) => ({
-                                        ...x[1],
-                                        ...y[1]
-                                    })), {}))) zaraz.set(w[0], w[1], {
-                                    scope: "page"
-                                });
-                            j[l].q = [];
-                            for (; j.zaraz.q.length;) {
-                                const z = j.zaraz.q.shift();
-                                j[l].q.push(z)
-                            }
-                            r.defer = !0;
-                            for (const A of [localStorage, sessionStorage]) Object.keys(A || {}).filter((C => C
-                                .startsWith("_zaraz_"))).forEach((B => {
-                                try {
-                                    j[l]["z_" + B.slice(7)] = JSON.parse(A.getItem(B))
-                                } catch {
-                                    j[l]["z_" + B.slice(7)] = A.getItem(B)
-                                }
-                            }));
-                            r.referrerPolicy = "origin";
-                            r.src = "../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[
-                                l])));
-                            q.parentNode.insertBefore(r, q)
-                        };
-                        ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener(
-                            "DOMContentLoaded", zaraz.init)
-                    }
-                }(w, d, "zarazData", "script");
-                window.zaraz._p = async bv => new Promise((bw => {
-                    if (bv) {
-                        bv.e && bv.e.forEach((bx => {
-                            try {
-                                const by = d.querySelector("script[nonce]"),
-                                    bz = by?.nonce || by?.getAttribute("nonce"),
-                                    bA = d.createElement("script");
-                                bz && (bA.nonce = bz);
-                                bA.innerHTML = bx;
-                                bA.onload = () => {
-                                    d.head.removeChild(bA)
-                                };
-                                d.head.appendChild(bA)
-                            } catch (bB) {
-                                console.error(`Error executing script: ${bx}\n`, bB)
-                            }
-                        }));
-                        Promise.allSettled((bv.f || []).map((bC => fetch(bC[0], bC[1]))))
-                    }
-                    bw()
-                }));
-                zaraz._p({
-                    "e": ["(function(w,d){})(window,document)"]
-                });
-            })(window, document)
-        } catch (e) {
-            throw fetch("/cdn-cgi/zaraz/t"), e;
-        };
-    </script>
 </head>
 
 <body>
+
     <header class="header_area">
         <div class="main_menu">
             {{-- <div class="search_input" id="search_input_box">
@@ -442,20 +366,20 @@
                                 </ul>
                             </li> --}}
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/online-class-link')}}">Online Class</a>
+                            <li class="nav-item {{ request()->is('online-class-link') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{url('online-class-link')}}">Online Class</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Class Record</a>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/teacher') }}">Our Teacher</a>
                             </li>
-                            <li class="nav-item {{ request()->is('/about') ? 'active' : '' }}">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/about') }}">About</a>
                             </li>
-                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{url('contact')}}">Contact</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                             </li>
                             {{-- <li class="nav-item">
                                 <a href="#" class="nav-link search" id="search">
@@ -499,8 +423,6 @@
                                         <a href="{{ url($dt->document_url) }}" target="_blank">{{ $dt->title }}</a>
                                         &nbsp; &nbsp; &nbsp;
 
-
-
                                     </td>
                                 @endforeach
 
@@ -516,49 +438,68 @@
         </div>
     </header>
 
+    <section class="section_gap_top" style="background: linear-gradient(135deg, #f0f4f8, #d9e4f1); padding: 220px 0;">
+        <div class="container"
+            style="padding: 60px; background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; margin-bottom: 40px;">Find the Online Class Link</h2>
+            <form action="{{ route('online-class-link.result') }}" method="get">
+                @csrf
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
-    <section class="section_gap_top">
-        <div class="container">
-            <h1 class="mt-4" style="text-align: center; padding-top:150px">Our Teacher</h1>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="onlineClassDate" style="text-align: center">Online Class Date</label>
+                    <input type="date" id="onlineClassDate" name="onlineClassDate" class="form-control"
+                        placeholder="Enter the online class date to find the class link" required
+                        style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+                </div>
 
-            <div class="table-responsive">
-                <table class="table table-striped table-hover table-bordered" style="width:100%" id="dataTable">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col">Serial No.</th>
+                <!-- Google reCAPTCHA widget -->
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <div class="">
+                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
 
-                            <th scope="col">Name</th>
-                            <th scope="col">Photo</th>
-                            <th scope="col">Designation</th>
-                            <td scope="col">View Full Details</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($teacher_info as $key => $dt)
-                            <tr>
-                                <th scope="row">{{ $key + 1 }}</th>
-                                <td>{{ $dt->name }}</td>
-                                <td><img style="width:130px; height: 100px;"
-                                        src="https://drive.google.com/thumbnail?id={{ $dt->photo_link }}"
-                                        alt="{{ $dt->name }}" title="{{ $dt->name }}"></td>
-                                <td>{{ $dt->position }}</td>
-                                <td><a href="{{ url('/teacher/detail/serial-number=' . $dt['id']) }}" target="_blank"
-                                        class="btn btn-primary" type="button" data-id="{{ $dt->id }}"
-                                        style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; font-size: 16px; border-radius: 5px; border: 2px solid #002347; color:#002347">Click
-                                        to see</a></td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                        @error('g-recaptcha-response')
+                            <span class="invalid-feedback" role="alert" style="color: red">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
 
-
-                </table>
-            </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn"
+                        style="padding: 15px 30px; background-color: #007bff; color: #fff; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;">Find</button>
+                </div>
+            </form>
         </div>
     </section>
 
 
+    <!-- Scroll to Top Button -->
+    <div id="scrollUp" style="display: none;">
+        <i class="fa fa-angle-up"></i>
+    </div>
 
+    <!-- Footer -->
     <footer class="footer-area section_gap">
         <div class="container">
             <div class="row">
@@ -640,11 +581,7 @@
         </div>
     </footer>
 
-    <div id="scrollUp" style="display: block;">
-        <i class="fa fa-angle-up"></i>
-    </div>
-
-
+    <!-- Scripts -->
     <script src="{{ asset('frontend/asset/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('frontend/asset/js/popper.js') }}"></script>
     <script src="{{ asset('frontend/asset/js/bootstrap.min.js') }}"></script>
@@ -659,51 +596,12 @@
     <script src="{{ asset('frontend/asset/js/theme.js') }}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-        data-cf-beacon='{"rayId":"8be3f4537a66ba53","version":"2024.8.0","serverTiming":{"name":{"cfL4":true}},"token":"cd0b4b3a733644fc843ef0b185f98241","b":1}'
-        crossorigin="anonymous"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
-    <!-- Custom DataTables script -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
-    </script>
-
-    <!-- Custom DataTables script -->
-    <script>
-        new DataTable('#example', {
-            responsive: true
-        });
-    </script>
 
     <script>
-        // When the user scrolls down 100px from the top of the document, show the button
+        // Scroll to top functionality
         window.onscroll = function() {
             scrollFunction();
         };
-
-
 
         function scrollFunction() {
             const scrollUpButton = document.getElementById("scrollUp");
@@ -714,7 +612,6 @@
             }
         }
 
-        // When the user clicks on the button, scroll to the top of the document
         document.getElementById("scrollUp").addEventListener("click", function() {
             window.scrollTo({
                 top: 0,

@@ -97,6 +97,18 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="onlineClassLinkCode" class="col-md-3 col-form-label">Online Class Link Code</label>
+                        <div class="col-md-9">
+                            <input type="text" id="onlineClassLinkCode" value="{{ old('onlineClassLinkCode', $data->link_code) }}" name="onlineClassLinkCode"
+                                placeholder="Enter the online class link code" class="form-control">
+                            <small class="form-text text-muted">Please enter the online class link code.</small>
+                            @error('onlineClassLinkCode')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="onlineclassdate" class="col-md-3 col-form-label">Online Class Date</label>
                         <div class="col-md-9">
                             <input type="date" id="onlineclassdate" name="onlineClassDate" value="{{$data->class_date}}"
