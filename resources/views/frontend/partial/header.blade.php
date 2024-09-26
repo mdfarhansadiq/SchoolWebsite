@@ -36,11 +36,23 @@
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/online-class-link')}}">Online Class</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Class Record</a>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">Class</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item {{ request()->is('online-class-link') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{url('online-class-link')}}">Online Class</a>
+                                </li>
+                                <li class="nav-item {{ request()->is('class-recording') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{url('class-recording')}}">Class Record</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" href="course-details.html">Course Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="elements.html">Elements</a>
+                                </li> --}}
+                            </ul>
                         </li>
                         <li class="nav-item {{ request()->is('/teacher') ? 'active' : '' }}">
                             <a class="nav-link" href="{{url('/teacher')}}">Our Teacher</a>

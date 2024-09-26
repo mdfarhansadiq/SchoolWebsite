@@ -226,29 +226,49 @@
 
                     <!-- Navbar Links (aligned to the right) -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/online-class-link')}}">Online Class</a>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Class</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item {{ request()->is('online-class-link') ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{url('online-class-link')}}">Online Class</a>
+                                    </li>
+                                    <li class="nav-item {{ request()->is('class-recording') ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{url('class-recording')}}">Class Record</a>
+                                    </li>
+                                    {{-- <li class="nav-item">
+                                        <a class="nav-link" href="course-details.html">Course Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="elements.html">Elements</a>
+                                    </li> --}}
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Class Record</a>
+
+
+
+                            <li class="nav-item {{ request()->is('teacher') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('teacher') }}">Our Teacher</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/teacher') }}">Our Teacher</a>
+                            <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ url('about') }}">About</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('/about') }}">About</a>
+                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{url('contact')}}">Contact</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/contact')}}">Contact</a>
-                            </li>
+                            {{-- <li class="nav-item">
+                                <a href="#" class="nav-link search" id="search">
+                                    <i class="ti-search"></i>
+                                </a>
+                            </li> --}}
                             <!-- Logout Button Fix -->
                             {{-- <li class="nav-item">
                                 @if ($admin_logged_in == null)
-                                    <a class="nav-link d-inline" href="{{ route('admin.login') }}">Login/Signup</a>
+                                    <a class="nav-link" href="{{ route('admin.login') }}">Login/Signup</a>
                                 @else
                                     <form method="POST" action="{{ route('admin.logout') }}" class="d-inline">
                                         @csrf
@@ -259,6 +279,9 @@
                                     </form>
                                 @endif
                             </li> --}}
+                            <li class="nav-item">
+
+                            </li>
                         </ul>
                     </div>
                 </div>
