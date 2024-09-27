@@ -37,6 +37,10 @@ Route::get('/teacher/detail/serial-number={id}', [TeacherInfoController::class, 
 Route::get('/online-class-link', [OnlineClassLinkController::class, 'onlineClassLinkFrontendView'])->name('online-class-link.view');
 Route::get('/online-class-link/result', [OnlineClassLinkController::class, 'onlineClassLinkFrontendFind'])->name('online-class-link.result');
 
+
+Route::get('/class-recording', [OnlineClassVideoController::class, 'classVideoPageFrontendView'])->name('class-record.view');
+Route::get('/class-recording/result', [OnlineClassVideoController::class, 'classVideoPageFrontendFind'])->name('class-record.result');
+
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
 Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');

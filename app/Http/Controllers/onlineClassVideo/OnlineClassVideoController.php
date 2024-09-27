@@ -7,11 +7,21 @@ use Illuminate\Support\Facades\Session;
 use App\Models\OnlineClassVideoLink;
 use App\Models\ClassNumber;
 use App\Models\ClassSection;
+use App\Models\NoticeDocument;
 use Illuminate\Http\Request;
 
 class OnlineClassVideoController extends Controller
 {
     //
+    public function classVideoPageFrontendView()
+    {
+        $data = OnlineClassVideoLink::all();
+        $noticeDocuments = NoticeDocument::all();
+        $classnumber = ClassNumber::all();
+        return view('frontend.class-video-record', compact('data', 'noticeDocuments', 'classnumber'));
+    }
+
+
     public function classVideoPageView()
     {
         $admin_role = Session::get('admin_login_role');
@@ -24,8 +34,35 @@ class OnlineClassVideoController extends Controller
     }
 
 
+    public function classVideoPageFrontendFind(Request $request)
+    {
+        $request->validate(
+            [
+                'classNumber' => 'required',
+                'classSection' => 'required',
+                'g-recaptcha-response' => 'required|recaptcha',
+            ],
+            [
+                'classNumber.required' => 'Please select the class number.',
+                'classSection.required' => 'Please select the class section.',
+                'g-recaptcha-response.required' => 'Please complete the CAPTCHA.',
+            ]
+        );
+
+
+        $classnumber = $request->classNumber;
+        $classsection = $request->classSection;
+
+        $data = OnlineClassVideoLink::where('class_number_id', $classnumber)->where('class_section_id', $classsection)->get();
+        $noticeDocuments = NoticeDocument::all();
+
+        return view('frontend.class-video-record-result', compact('data', 'noticeDocuments'));
+    }
+
+
     public function classSectionSelectData($id)
     {
+
         $section = ClassSection::where('class_number_id', $id)->pluck('class_section', 'id');
         return response()->json($section);
     }
