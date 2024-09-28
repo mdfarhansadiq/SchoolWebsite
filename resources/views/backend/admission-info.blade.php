@@ -121,34 +121,32 @@
                         @endphp
                         @foreach ($data as $key => $file)
                             <tr>
-                                @if ($current_date >= $file->admission_start_date && $current_date <= $file->admission_end_date)
-                                    <th scope="row">{{ $key + 1 }}</th>
-                                    <td>Class - {{ $file->classNumber->class_number }}</td>
-                                    <td>{{ $file->admission_start_date }}</td>
-                                    <td>{{ $file->admission_end_date }}</td>
-                                    <td>@php
-                                        $file_links = explode(',', $file->file_link);
-                                    @endphp
-                                        @foreach ($file_links as $link_Id)
-                                            @php
-                                                $link_Id = trim($link_Id);
-                                            @endphp
-                                            <a href="https://drive.google.com/uc?export=download&id={{ $link_Id }}"
-                                                download>
-                                                <i class="fa fa-file-text" style="font-size:25px;color:#000000"></i>
-                                            </a>
-                                            <br>
-                                            <br>
-                                        @endforeach
-                                    </td>
-                                    <td><a href="{{ url('/ourschool-admin/admission-info/edit', $file['id']) }}"
-                                            class="edit btn btn-primary" type="button"
-                                            data-id="{{ $file->id }}">Edit</a>
-                                        <a href="{{ url('/ourschool-admin/admission-info/delete', $file['id']) }}"
-                                            class="delete btn btn-danger" type="button" data-id="{{ $file->id }}"
-                                            onclick="return confirm('Are you sure to delete this admission-info?')">Delete</a>
-                                    </td>
-                                @endif
+                                <th scope="row">{{ $key + 1 }}</th>
+                                <td>Class - {{ $file->classNumber->class_number }}</td>
+                                <td>{{ $file->admission_start_date }}</td>
+                                <td>{{ $file->admission_end_date }}</td>
+                                <td>@php
+                                    $file_links = explode(',', $file->file_link);
+                                @endphp
+                                    @foreach ($file_links as $link_Id)
+                                        @php
+                                            $link_Id = trim($link_Id);
+                                        @endphp
+                                        <a href="https://drive.google.com/uc?export=download&id={{ $link_Id }}"
+                                            download>
+                                            <i class="fa fa-file-text" style="font-size:25px;color:#000000"></i>
+                                        </a>
+                                        <br>
+                                        <br>
+                                    @endforeach
+                                </td>
+                                <td><a href="{{ url('/ourschool-admin/admission-info/edit', $file['id']) }}"
+                                        class="edit btn btn-primary" type="button" data-id="{{ $file->id }}">Edit</a>
+                                    <a href="{{ url('/ourschool-admin/admission-info/delete', $file['id']) }}"
+                                        class="delete btn btn-danger" type="button" data-id="{{ $file->id }}"
+                                        onclick="return confirm('Are you sure to delete this admission-info?')">Delete</a>
+                                </td>
+
                             </tr>
                         @endforeach
                     </tbody>

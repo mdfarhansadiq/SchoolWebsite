@@ -41,6 +41,11 @@ Route::get('/online-class-link/result', [OnlineClassLinkController::class, 'onli
 Route::get('/class-recording', [OnlineClassVideoController::class, 'classVideoPageFrontendView'])->name('class-record.view');
 Route::get('/class-recording/result', [OnlineClassVideoController::class, 'classVideoPageFrontendFind'])->name('class-record.result');
 
+
+Route::get('/admission-info', [AdmissionInfoController::class, 'admissionInfoFrontendView'])->name('admission-info.view');
+
+
+
 Route::get('/ourschool-admin/signup/view', [AdminSignupLoginController::class, 'adminSignupPageView'])->name('admin.signup');
 Route::post('/ourschool-admin/signup/create', [AdminSignupLoginController::class, 'adminSignupPageCreate'])->name('admin.signup.create');
 Route::get('/ourschool-admin/login/view', [AdminSignupLoginController::class, 'adminLoginPageView'])->name('admin.login');

@@ -7,11 +7,20 @@ use Illuminate\Support\Facades\Session;
 use App\Models\ClassNumber;
 use App\Models\ClassSection;
 use App\Models\AdmissionInfo;
+use App\Models\NoticeDocument;
 use Illuminate\Http\Request;
 
 class AdmissionInfoController extends Controller
 {
     //
+    public function admissionInfoFrontendView()
+    {
+        $data = AdmissionInfo::orderBy('admission_start_date', 'desc')->get();
+        $noticeDocuments = NoticeDocument::all();
+        return view('frontend.admission-info', compact('data', 'noticeDocuments'));
+    }
+
+
     public function admissionInfoPageView()
     {
         if (Session::has('admin_login_role')) {
@@ -48,6 +57,12 @@ class AdmissionInfoController extends Controller
             ]);
 
             // Create a new instance of LectureNoteFile model and save data
+            if($request->admissionStartDate > $request->admissionEndDate)
+            {
+                Session::flash('error', 'Start date cannot be greater than end date.');
+                return redirect()->back();
+            }
+
             $data = new AdmissionInfo();
             $data->class_number_id = $request->classNumber;
             $data->admission_start_date = $request->admissionStartDate;
@@ -99,6 +114,12 @@ class AdmissionInfoController extends Controller
                 'admissionEndDate' => 'required|date',
                 'admissionInfoLink' => 'required|string', // Ensure it's a valid URL format if needed
             ]);
+
+            if($request->admissionStartDate > $request->admissionEndDate)
+            {
+                Session::flash('error', 'Start date cannot be greater than end date.');
+                return redirect()->back();
+            }
 
             $data = AdmissionInfo::find($id);
             $data->class_number_id = $request->classNumber;

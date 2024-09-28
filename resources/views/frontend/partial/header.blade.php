@@ -38,13 +38,31 @@
 
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">Class</a>
+                                aria-haspopup="true" aria-expanded="false">Class & Class Record</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item {{ request()->is('online-class-link') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{url('online-class-link')}}">Online Class</a>
                                 </li>
                                 <li class="nav-item {{ request()->is('class-recording') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{url('class-recording')}}">Class Record</a>
+                                </li>
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" href="course-details.html">Course Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="elements.html">Elements</a>
+                                </li> --}}
+                            </ul>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">Notice & Admission Info</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item {{ request()->is('notice') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{url('notice')}}">Notice</a>
+                                </li>
+                                <li class="nav-item {{ request()->is('admission-info') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{url('admission-info')}}">Admission Info</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a class="nav-link" href="course-details.html">Course Details</a>
