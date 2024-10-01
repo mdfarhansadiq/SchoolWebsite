@@ -55,6 +55,9 @@
                 <li class="nav-item {{ request()->is('ourschool-admin/admission-info/view') ? 'active' : '' }}">
                     <a href="{{ url('ourschool-admin/admission-info/view') }}"> <i class="menu-icon fa fa-info-circle"></i>Admission Info</a>
                 </li>
+                <li class="nav-item {{ request()->is('ourschool-admin/photos/view') ? 'active' : '' }}">
+                    <a href="{{ url('ourschool-admin/photos/view') }}"> <i class="menu-icon fa fa-image"></i>All Photos</a>
+                </li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
