@@ -16,6 +16,7 @@ use App\Http\Controllers\onlineClassLink\OnlineClassLinkController;
 use App\Http\Controllers\teacherInfo\TeacherInfoController;
 use App\Http\Controllers\teacherLoginSignup\TeacherLoginSignupController;
 use App\Http\Controllers\onlineClassVideo\OnlineClassVideoController;
+use App\Http\Controllers\photoFileLink\PhotoFileLinkController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Session;
 use PHPUnit\Framework\TestStatus\Notice;
@@ -115,13 +116,23 @@ Route::get('/ourschool-admin/online-class-link/edit/{id}', [OnlineClassLinkContr
 Route::post('/ourschool-admin/online-class-link/update/{id}', [OnlineClassLinkController::class, 'onlineClassLinkPageUpdate'])->name('admin.online-class-link.update');
 Route::get('/ourschool-admin/online-class-link/delete/{id}', [OnlineClassLinkController::class, 'onlineClassLinkPageDelete'])->name('admin.online-class-link.delete');
 
-
 Route::get('/ourschool-admin/lecture-note-file/view', [LectureNoteFileController::class, 'lectureNoteFilePageView'])->name('admin.lecture-note-file.view');
 Route::get('/ourschool-admin/lecture-note-file/select-data/{id}', [OnlineClassVideoController::class, 'classSectionSelectData'])->name('admin.class-record.select-data');
 Route::post('/ourschool-admin/lecture-note-file/create', [LectureNoteFileController::class, 'lectureNoteFilePageCreate'])->name('admin.lecture-note-file.create');
 Route::get('/ourschool-admin/lecture-note-file/edit/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageEdit'])->name('admin.lecture-note-file.edit');
 Route::post('/ourschool-admin/lecture-note-file/update/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageUpdate'])->name('admin.lecture-note-file.update');
 Route::get('/ourschool-admin/lecture-note-file/delete/{id}', [LectureNoteFileController::class, 'lectureNoteFilePageDelete'])->name('admin.lecture-note-file.delete');
+
+Route::get('/ourschool-admin/photo-file/view', [PhotoFileLinkController::class, 'photoFileLinkPageView'])->name('admin.photo-file.view');
+Route::post('/ourschool-admin/photo-file/create', [PhotoFileLinkController::class, 'photoFileLinkPageCreate'])->name('admin.photo-file.create');
+Route::get('/ourschool-admin/photo-file/edit/{id}', [PhotoFileLinkController::class, 'photoFileLinkPageEdit'])->name('admin.photo-file.edit');
+Route::post('/ourschool-admin/photo-file/update/{id}', [PhotoFileLinkController::class, 'photoFileLinkPageUpdate'])->name('admin.photo-file.update');
+Route::get('/ourschool-admin/photo-file/delete/{id}', [PhotoFileLinkController::class, 'photoFileLinkPageDelete']);
+Route::get('/ourschool-admin/photo-file-specific/delete/view/{id}', [PhotoFileLinkController::class, 'photoFileLinkSpecificPageDeleteView']);
+Route::post('/ourschool-admin/photo-file-specific/delete/post', [PhotoFileLinkController::class, 'photoFileLinkSpecificPageDeletePost']);
+
+
+
 
 Route::get('/ourschool-admin/admission-info/view', [AdmissionInfoController::class, 'admissionInfoPageView'])->name('admin.admission-info.view');
 Route::post('/ourschool-admin/admission-info/create', [AdmissionInfoController::class, 'admissionInfoPageCreate'])->name('admin.admission-info.create');
