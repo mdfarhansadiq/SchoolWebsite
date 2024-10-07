@@ -22,3 +22,5 @@ class HomePageController extends Controller
         return view('frontend.home', compact('noticeDocuments', 'notice_documents_1', 'admin_logged_in', 'teacher_info'));
     }
 }
+
+
